@@ -1,6 +1,9 @@
 package com.stebakov.products.domain.repository
 
+import com.stebakov.products.data.model.PhoneServerModel
+import retrofit2.Response
+
 interface PhoneCloudDataSource {
 
-    fun getPhone(callback: PhoneCloudCallback)
+    suspend fun getPhone(): List<PhoneServerModel>
 }

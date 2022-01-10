@@ -3,8 +3,8 @@ package com.stebakov.products
 import android.app.Application
 import com.stebakov.products.data.PhoneService
 import com.stebakov.products.data.repository.BasePhoneCloudDataSource
-import com.stebakov.products.domain.BaseModel
-import com.stebakov.products.domain.ViewModel
+import com.stebakov.products.domain.viewmodel.BaseModel
+import com.stebakov.products.domain.viewmodel.ViewModel
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

@@ -1,11 +1,9 @@
 package com.stebakov.products
 
-import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
-import com.stebakov.products.domain.ViewModel
+import com.stebakov.products.domain.viewmodel.ViewModel
 import com.stebakov.products.presentation.PhoneFragment
 
 class MainActivity : AppCompatActivity() {
