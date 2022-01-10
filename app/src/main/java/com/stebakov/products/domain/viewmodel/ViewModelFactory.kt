@@ -1,4 +1,4 @@
-package com.stebakov.products.domain
+package com.stebakov.products.domain.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -7,6 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 class ViewModelFactory(private val model: Model): ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return com.stebakov.products.domain.ViewModel(model) as T
+        return ViewModel(model) as T
     }
 }
