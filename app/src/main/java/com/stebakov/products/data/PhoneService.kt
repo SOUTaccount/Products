@@ -8,14 +8,14 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 
 interface PhoneService {
-    @Headers("x-apikey: " + "2aa8e910f6c4ade81a84c9333ffc7bf6a398e")
-    @GET("main")
+    @Headers("x-apikey: " + "61dd5c6541d12476e0dcdde2")
+    @GET("home")
     suspend fun getPhone(): Response<List<PhoneServerModel>>
 
     companion object{
         operator fun invoke() : PhoneService {
             return Retrofit.Builder()
-                .baseUrl("https://db2021ecom-edca.restdb.io/rest/")
+                .baseUrl("https://shopapi-0575.restdb.io/rest/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(PhoneService::class.java)
