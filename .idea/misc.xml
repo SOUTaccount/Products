@@ -3,11 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_card_giftcard_24.xml" value="0.17962962962962964" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_computer_24.xml" value="0.17962962962962964" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_favorite_24.xml" value="0.21944444444444444" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_favorite_border_24.xml" value="0.21944444444444444" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_fitness_center_24.xml" value="0.17962962962962964" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_health_and_safety_24.xml" value="0.17962962962962964" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_library_books_24.xml" value="0.17962962962962964" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_phone_iphone_24.xml" value="0.20277777777777778" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable/circle_imagebutton.xml" value="0.22314814814814815" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable/phone_view.xml" value="0.20277777777777778" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable/selected_text.xml" value="0.17962962962962964" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/phone_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/activity_phone_detail.xml" value="0.1526268115942029" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/fragment_phone_detail.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/phone_detail.xml" value="0.1358695652173913" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/phone_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/phone_view.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/recyclerview_phone.xml" value="0.4" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/recyclerview_phone_bestseller.xml" value="0.536" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/recyclerview_phone_homestore.xml" value="0.1598731884057971" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/recyclerview_phone_bestseller.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/recyclerview_phone_homestore.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/shop_fragment.xml" value="0.264" />
       </map>
     </option>
   </component>

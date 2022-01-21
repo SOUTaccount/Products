@@ -5,4 +5,12 @@
     <string name="dollar">$</string>
     <string name="buy_now">Buy now!</string>
     <string name="description_img">This is phone image</string>
+    <string name="text_new">New</string>
+    <string name="select_category">Select category</string>
+    <string name="view_all">view all</string>
+    <string name="best_seller">Best seller</string>
+    <string name="see_more">see more</string>
+    <string name="product_detail_title">Product detail</string>
+    <string name="select_color_text">Select color and capacity</string>
+    <string name="add_to_cart_text">Add to Cart $</string>
 </resources>

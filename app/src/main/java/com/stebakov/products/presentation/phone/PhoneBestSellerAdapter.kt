@@ -1,20 +1,23 @@
-package com.stebakov.products.presentation
+package com.stebakov.products.presentation.phone
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.stebakov.products.R
-import com.stebakov.products.domain.model.PhoneBestSeller
-import com.stebakov.products.domain.model.PhoneHomeStore
+import com.stebakov.products.data.model.PhoneBestSellerServerModel
+import com.stebakov.products.presentation.phonedetail.PhoneDetailActivity
 
 class PhoneBestSellerAdapter(
-    private val phoneBestSeller: MutableList<PhoneBestSeller>,
+    private val phoneBestSeller: List<PhoneBestSellerServerModel>,
     private val context: Context
 ) : RecyclerView.Adapter<PhoneBestSellerAdapter.PhoneViewHolder>() {
 
@@ -25,17 +28,36 @@ class PhoneBestSellerAdapter(
         return PhoneViewHolder(itemView)
     }
 
+    @SuppressLint("SetTextI18n", "NotifyDataSetChanged")
     override fun onBindViewHolder(p0: PhoneViewHolder, p1: Int) {
-        p0.price.append(phoneBestSeller[p1].mapPriceDiscount().toString())
-        p0.subtitle.text = phoneBestSeller[p1].mapTitle()
-        p0.oldPrice.append(phoneBestSeller[p1].mapPrice().toString())
-        p0.oldPrice.strikeThrough(true)
+        p0.apply {
+            price.text = "$" + (phoneBestSeller[p1].priceDiscount.toString())
+            subtitle.text = phoneBestSeller[p1].title
+            oldPrice.text = "$" + phoneBestSeller[p1].price.toString()
+            oldPrice.strikeThrough(true)
+            if (phoneBestSeller[p1].isFavorites)
+                favoriteBtn.setImageResource(R.drawable.outline_favorite_24)
+            else favoriteBtn.setImageResource(R.drawable.outline_favorite_border_24)
+            favoriteBtn.setOnClickListener {
+                phoneBestSeller[p1].isFavorites = !phoneBestSeller[p1].isFavorites
+                notifyDataSetChanged()
+            }
+            picture.setOnClickListener {
+                context.startActivity(
+                    Intent(
+                        context,
+                        PhoneDetailActivity::class.java
+                    )
+                )
+            }
+        }
         Picasso.with(context)
-            .load(phoneBestSeller[p1].mapPicture())
+            .load(phoneBestSeller[p1].picture)
             .fit()
             .placeholder(R.mipmap.ic_launcher)
             .error(R.mipmap.ic_launcher)
             .into(p0.picture)
+
     }
 
     override fun getItemCount() = phoneBestSeller.size
@@ -45,6 +67,7 @@ class PhoneBestSellerAdapter(
         val subtitle = itemView.findViewById<TextView>(R.id.tv_subtitle_phone_best)!!
         val oldPrice = itemView.findViewById<TextView>(R.id.tv_old_price)!!
         val picture = itemView.findViewById<ImageView>(R.id.img_phone_best)!!
+        val favoriteBtn = itemView.findViewById<ImageButton>(R.id.img_btn_favorite)!!
     }
 
     private fun TextView.strikeThrough(enable: Boolean) {

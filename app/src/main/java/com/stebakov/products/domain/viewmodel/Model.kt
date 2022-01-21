@@ -1,9 +1,13 @@
 package com.stebakov.products.domain.viewmodel
 
-import com.stebakov.products.domain.model.PhoneBestSeller
-import com.stebakov.products.domain.model.PhoneHomeStore
+import com.stebakov.products.data.model.PhoneDetailServerModel
+import com.stebakov.products.data.model.PhoneServerModel
+import com.stebakov.products.domain.usecase.GetDetailPhoneUseCase
+import com.stebakov.products.domain.usecase.GetPhonesUseCase
 
 interface Model {
-    suspend fun getPhoneHomeStore() : MutableList<PhoneHomeStore>
-    suspend fun getPhoneBestSeller() : MutableList<PhoneBestSeller>
+    val getPhonesUseCase: GetPhonesUseCase
+    val getDetailPhoneUseCase: GetDetailPhoneUseCase
+    suspend fun getPhones() : PhoneServerModel
+    suspend fun getDetail() : PhoneDetailServerModel
 }

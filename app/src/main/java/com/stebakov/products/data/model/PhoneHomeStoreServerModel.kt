@@ -7,17 +7,17 @@ class PhoneHomeStoreServerModel(
     @SerializedName("id")
     private val id: Int,
     @SerializedName("is_new")
-    private val isNew: Boolean?,
+    var isNew: Boolean = false,
     @SerializedName("is_favorites")
-    private val isFavorites: Boolean?,
+    var isFavorites: Boolean = false,
     @SerializedName("title")
-    private val title: String,
+    val title: String,
     @SerializedName("subtitle")
-    private val subtitle: String,
+    val subtitle: String,
     @SerializedName("picture")
-    private val picture: String,
+    val picture: String,
     @SerializedName("is_buy")
-    private val isBuy: Boolean
+    var isBuy: Boolean?
 ) {
     fun toHomeStore() = PhoneHomeStore(isNew,isFavorites,title,subtitle,picture,isBuy)
 }
