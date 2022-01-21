@@ -1,4 +1,4 @@
-package com.stebakov.products.presentation
+package com.stebakov.products.presentation.phone
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,24 +9,30 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.stebakov.products.R
-import com.stebakov.products.domain.model.PhoneHomeStore
+import com.stebakov.products.data.model.PhoneHomeStoreServerModel
 
 class PhoneHomeStoreAdapter(
-    private val phoneHomeStore : MutableList<PhoneHomeStore>,
+    private val phoneHomeStore: List<PhoneHomeStoreServerModel>,
     private val context: Context
 ) : RecyclerView.Adapter<PhoneHomeStoreAdapter.PhoneViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): PhoneViewHolder {
         val itemView =
-            LayoutInflater.from(p0.context).inflate(R.layout.recyclerview_phone_homestore, p0, false)
+            LayoutInflater.from(p0.context)
+                .inflate(R.layout.recyclerview_phone_homestore, p0, false)
         return PhoneViewHolder(itemView)
     }
 
     override fun onBindViewHolder(p0: PhoneViewHolder, p1: Int) {
-        p0.title.text = phoneHomeStore[p1].mapTitle()
-        p0.subtitle.text = phoneHomeStore[p1].mapSubTitle()
+        p0.apply {
+            title.text = phoneHomeStore[p1].title
+            subtitle.text = phoneHomeStore[p1].subtitle
+            if (phoneHomeStore[p1].isNew)
+                new.visibility = View.VISIBLE
+            else new.visibility = View.GONE
+        }
         Picasso.with(context)
-            .load(phoneHomeStore[p1].mapPicture())
+            .load(phoneHomeStore[p1].picture)
             .fit()
             .placeholder(R.mipmap.ic_launcher)
             .error(R.mipmap.ic_launcher)
@@ -39,5 +45,6 @@ class PhoneHomeStoreAdapter(
         val title = itemView.findViewById<TextView>(R.id.tv_title)!!
         val subtitle = itemView.findViewById<TextView>(R.id.tv_subtitle)!!
         val picture = itemView.findViewById<ImageView>(R.id.imageView)!!
+        val new = itemView.findViewById<TextView>(R.id.tv_new)!!
     }
 }

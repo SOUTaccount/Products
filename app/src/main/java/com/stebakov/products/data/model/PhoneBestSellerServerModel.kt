@@ -7,15 +7,15 @@ class PhoneBestSellerServerModel(
     @SerializedName("id")
     private val id: Int,
     @SerializedName("is_favorites")
-    private val isFavorites: Boolean,
+    var isFavorites: Boolean = false,
     @SerializedName("title")
-    private val title: String,
+    val title: String,
     @SerializedName("price_without_discount")
-    private val price: Int,
+    val price: Int?,
     @SerializedName("picture")
-    private val picture: String,
+    val picture: String,
     @SerializedName("discount_price")
-    private val priceDiscount: Int
+    val priceDiscount: Int?
 ) {
     fun toBestSeller() = PhoneBestSeller(isFavorites,title,picture,price,priceDiscount)
 }

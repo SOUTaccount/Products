@@ -1,4 +1,4 @@
-package com.stebakov.products.presentation
+package com.stebakov.products.presentation.phone
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -41,20 +41,17 @@ class PhoneFragment : Fragment() {
         factory = ViewModelFactory(model)
         viewModel = ViewModelProvider(this, factory).get(ViewModel::class.java)
         viewModel.getPhone()
-        viewModel.phoneHomeStore.observe(viewLifecycleOwner, Observer { phoneHomeStore ->
+        viewModel.phones.observe(viewLifecycleOwner, Observer { phones ->
             recyclerViewHomeStore.also {
                 it.layoutManager =
                     LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                 it.setHasFixedSize(true)
-                it.adapter = PhoneHomeStoreAdapter(phoneHomeStore, requireContext())
+                it.adapter = PhoneHomeStoreAdapter(phones.phoneHomeStore, requireContext())
             }
-        })
-
-        viewModel.phoneBestSeller.observe(viewLifecycleOwner, Observer { phoneBestSeller ->
             recyclerViewBestSeller.also {
                 it.layoutManager =
                     GridLayoutManager(requireContext(), 2)
-                it.adapter = PhoneBestSellerAdapter(phoneBestSeller, requireContext())
+                it.adapter = PhoneBestSellerAdapter(phones.phoneBestSeller, requireContext())
             }
         })
     }

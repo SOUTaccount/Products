@@ -46,7 +46,4 @@ abstract class Phone(
     fun mapPicture() = picture
     fun mapPriceDiscount() = priceDiscount
     fun mapPrice() = price
-//    fun map(dataCallback: DataCallback) = dataCallback.run {
-//        provideTitle(title)
-//    }
 }

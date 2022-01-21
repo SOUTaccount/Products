@@ -8,9 +8,9 @@ class PhoneServerModel(
     @SerializedName("_id")
     private val id: String,
     @SerializedName("home_store")
-    private val phoneHomeStore: List<PhoneHomeStoreServerModel>,
+    val phoneHomeStore: List<PhoneHomeStoreServerModel>,
     @SerializedName("best_seller")
-    private val phoneBestSeller: List<PhoneBestSellerServerModel>
+    val phoneBestSeller: List<PhoneBestSellerServerModel>
 ) {
     fun toPhoneHomeStore() = phoneHomeStore
 
