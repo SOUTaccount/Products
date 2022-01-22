@@ -8,5 +8,5 @@ interface PhoneCloudDataSource {
 
     suspend fun getPhone(): List<PhoneServerModel>
 
-    suspend fun getDetail(): PhoneDetailServerModel
+    suspend fun getDetail(): List<PhoneDetailServerModel>
 }

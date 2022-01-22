@@ -17,13 +17,17 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/activity_phone_detail.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/fragment_main.xml" value="0.19701086956521738" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/fragment_phone_characteristics.xml" value="0.19701086956521738" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/fragment_phone_detail.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/phone_characteristics_fragment.xml" value="0.4" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/phone_detail.xml" value="0.1358695652173913" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/phone_detail_fragment.xml" value="0.19701086956521738" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/phone_fragment.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/phone_view.xml" value="0.2" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/recyclerview_phone.xml" value="0.4" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/recyclerview_phone_bestseller.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/recyclerview_phone_homestore.xml" value="0.264" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/recyclerview_phone_image.xml" value="0.19701086956521738" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/layout/shop_fragment.xml" value="0.264" />
       </map>
     </option>

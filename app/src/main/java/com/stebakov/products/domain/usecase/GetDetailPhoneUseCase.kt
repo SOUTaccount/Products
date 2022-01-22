@@ -8,7 +8,7 @@ class GetDetailPhoneUseCase {
     var data: PhoneDetailServerModel? = null
 
     suspend fun execute(cloudDataSource: PhoneCloudDataSource): PhoneDetailServerModel {
-        data = cloudDataSource.getDetail()
+        data = cloudDataSource.getDetail()[0]
         return data!!
     }
 }
