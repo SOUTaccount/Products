@@ -1,8 +1,7 @@
 package com.stebakov.products.domain.repository
 
-import com.stebakov.products.data.model.PhoneDetailServerModel
-import com.stebakov.products.data.model.PhoneServerModel
-import retrofit2.Response
+import com.stebakov.products.data.entity.PhoneDetailServerModel
+import com.stebakov.products.data.entity.PhoneServerModel
 
 interface PhoneCloudDataSource {
 

@@ -1,6 +1,6 @@
 package com.stebakov.products.domain.usecase
 
-import com.stebakov.products.data.model.PhoneServerModel
+import com.stebakov.products.data.entity.PhoneServerModel
 import com.stebakov.products.domain.repository.PhoneCloudDataSource
 
 class GetPhonesUseCase {
