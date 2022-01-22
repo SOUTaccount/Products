@@ -23,6 +23,7 @@ class PhoneFragment : Fragment() {
     private lateinit var factory: ViewModelFactory
     private lateinit var recyclerViewHomeStore: RecyclerView
     private lateinit var recyclerViewBestSeller: RecyclerView
+    private lateinit var navigationView: View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +32,7 @@ class PhoneFragment : Fragment() {
         val view = inflater.inflate(R.layout.phone_fragment, container, false)
         recyclerViewHomeStore = view.findViewById(R.id.recyclerview_phone_home_store)
         recyclerViewBestSeller = view.findViewById(R.id.recyclerview_phone_best_seller)
+        navigationView = view
         return view
     }
 
@@ -51,7 +53,7 @@ class PhoneFragment : Fragment() {
             recyclerViewBestSeller.also {
                 it.layoutManager =
                     GridLayoutManager(requireContext(), 2)
-                it.adapter = PhoneBestSellerAdapter(phones.phoneBestSeller, requireContext())
+                it.adapter = PhoneBestSellerAdapter(phones.phoneBestSeller, requireContext(), navigationView)
             }
         })
     }

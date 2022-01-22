@@ -9,7 +9,11 @@
         android:id="@+id/mainFragment"
         android:name="com.stebakov.products.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_phoneDetailFragment"
+            app:destination="@id/phoneDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/phoneDetailFragment"
         android:name="com.stebakov.products.presentation.phonedetail.PhoneDetailFragment"
