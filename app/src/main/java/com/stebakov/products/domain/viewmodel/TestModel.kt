@@ -42,6 +42,11 @@ class TestModel : Model {
     }
 
     override suspend fun getDetail(): PhoneDetailServerModel {
-        TODO("Not yet implemented")
+        return PhoneDetailServerModel(
+            "1", "cpu", "camera",
+            true, 1200, 5, "sd", "ssd",
+            "title", listOf("Image1", "Image2"),
+            listOf("Color1", "Color2"), listOf("capacity")
+        )
     }
 }

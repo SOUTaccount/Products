@@ -10,15 +10,16 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.stebakov.products.R
 import com.stebakov.products.data.model.PhoneBestSellerServerModel
-import com.stebakov.products.presentation.phonedetail.PhoneDetailActivity
 
 class PhoneBestSellerAdapter(
     private val phoneBestSeller: List<PhoneBestSellerServerModel>,
-    private val context: Context
+    private val context: Context,
+    private val navigationView: View
 ) : RecyclerView.Adapter<PhoneBestSellerAdapter.PhoneViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): PhoneViewHolder {
@@ -43,12 +44,7 @@ class PhoneBestSellerAdapter(
                 notifyDataSetChanged()
             }
             picture.setOnClickListener {
-                context.startActivity(
-                    Intent(
-                        context,
-                        PhoneDetailActivity::class.java
-                    )
-                )
+                Navigation.findNavController(navigationView).navigate(R.id.action_mainFragment_to_phoneDetailFragment)
             }
         }
         Picasso.with(context)

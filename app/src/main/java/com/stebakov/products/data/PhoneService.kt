@@ -15,7 +15,7 @@ interface PhoneService {
 
     @Headers("x-apikey: " + "61ddae2e95cb716ea5ee48e4")
     @GET("detail")
-    suspend fun getDetail(): Response<PhoneDetailServerModel>
+    suspend fun getDetail(): Response<List<PhoneDetailServerModel>>
 
     companion object{
         operator fun invoke() : PhoneService {
