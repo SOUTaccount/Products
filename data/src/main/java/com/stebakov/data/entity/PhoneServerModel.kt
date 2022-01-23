@@ -1,6 +1,8 @@
-package com.stebakov.domain.entity
+package com.stebakov.data.entity
 
 import com.google.gson.annotations.SerializedName
+import com.stebakov.domain.entity.PhoneBestSellerServerModel
+import com.stebakov.domain.entity.PhoneHomeStoreServerModel
 
 class PhoneServerModel(
     @SerializedName("_id")
