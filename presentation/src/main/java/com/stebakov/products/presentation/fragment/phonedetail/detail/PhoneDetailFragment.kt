@@ -16,13 +16,13 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.stebakov.products.R
 import com.stebakov.data.network.PhoneService
 import com.stebakov.data.repository.BasePhoneCloudDataSource
-import com.stebakov.domain.entity.Details
-import com.stebakov.domain.entity.Features
-import com.stebakov.domain.entity.Shop
+import com.stebakov.products.presentation.fragment.phonedetail.characteristics.Details
+import com.stebakov.products.presentation.fragment.phonedetail.characteristics.Features
 import com.stebakov.products.presentation.viewmodel.detail.BaseDetailModel
 import com.stebakov.products.presentation.viewmodel.detail.DetailViewModel
 import com.stebakov.products.presentation.viewmodel.detail.factory.DetailViewModelFactory
 import com.stebakov.products.presentation.fragment.phonedetail.characteristics.FragmentCharacteristicsAdapter
+import com.stebakov.products.presentation.fragment.phonedetail.characteristics.Shop
 
 
 class PhoneDetailFragment : Fragment() {

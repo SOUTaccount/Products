@@ -2,6 +2,7 @@ package com.stebakov.products.presentation.fragment.phone
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,12 +49,14 @@ class PhoneFragment : Fragment() {
                 it.layoutManager =
                     LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                 it.setHasFixedSize(true)
-                it.adapter = PhoneHomeStoreAdapter(phones.phoneHomeStore, requireContext())
+                it.adapter = PhoneHomeStoreAdapter(phones, requireContext())
             }
+        })
+        phoneViewModel.phonesBestSeller.observe(viewLifecycleOwner, { phonesBestSeller ->
             recyclerViewBestSeller.also {
                 it.layoutManager =
                     GridLayoutManager(requireContext(), 2)
-                it.adapter = PhoneBestSellerAdapter(phones.phoneBestSeller, requireContext(), navigationView)
+                it.adapter = PhoneBestSellerAdapter(phonesBestSeller, requireContext(), navigationView)
             }
         })
     }
