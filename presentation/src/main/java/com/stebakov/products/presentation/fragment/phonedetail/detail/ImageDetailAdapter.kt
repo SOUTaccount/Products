@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.stebakov.products.R
-import com.stebakov.domain.entity.PhoneDetailServerModel
+import com.stebakov.domain.entity.network.PhoneDetailServerModel
 
 class ImageDetailAdapter(
     private val phoneDetail: PhoneDetailServerModel,

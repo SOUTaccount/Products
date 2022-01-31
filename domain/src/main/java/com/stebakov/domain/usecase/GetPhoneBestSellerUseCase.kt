@@ -1,14 +1,13 @@
 package com.stebakov.domain.usecase
 
-import com.stebakov.domain.entity.PhoneBestSellerServerModel
-import com.stebakov.domain.entity.PhoneHomeStoreServerModel
-import com.stebakov.domain.repository.PhoneCloudDataSource
+import com.stebakov.domain.entity.network.PhoneBestSellerServerModel
+import com.stebakov.domain.repository.PhoneRepository
 
 class GetPhoneBestSellerUseCase {
     var data : List<PhoneBestSellerServerModel>? = null
 
-    suspend fun execute(cloudDataSource: PhoneCloudDataSource): List<PhoneBestSellerServerModel> {
-        data = cloudDataSource.getPhoneBestSeller()
+    suspend fun execute(repository: PhoneRepository): List<PhoneBestSellerServerModel> {
+        data = repository.getPhoneBestSeller()
         return data!!
     }
 }

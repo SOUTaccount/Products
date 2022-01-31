@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.stebakov.products.R
-import com.stebakov.domain.entity.PhoneHomeStoreServerModel
+import com.stebakov.domain.entity.network.PhoneHomeStoreServerModel
 
 class PhoneHomeStoreAdapter(
     private val phoneHomeStore: List<PhoneHomeStoreServerModel>,
