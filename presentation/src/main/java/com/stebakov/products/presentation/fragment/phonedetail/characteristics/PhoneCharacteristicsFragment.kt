@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stebakov.products.R
 import com.stebakov.data.network.PhoneService
-import com.stebakov.data.repository.BasePhoneCloudDataSource
+import com.stebakov.data.repository.PhoneRepositoryImpl
 import com.stebakov.products.presentation.viewmodel.detail.BaseDetailModel
 import com.stebakov.products.presentation.viewmodel.detail.DetailViewModel
 import com.stebakov.products.presentation.viewmodel.detail.factory.DetailViewModelFactory
@@ -53,7 +53,7 @@ class PhoneCharacteristicsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val phoneCloud = BasePhoneCloudDataSource(PhoneService())
+        val phoneCloud = PhoneRepositoryImpl(PhoneService())
         val model = BaseDetailModel(phoneCloud)
         factory = DetailViewModelFactory(model)
         viewModel = ViewModelProvider(this, factory).get(DetailViewModel::class.java)

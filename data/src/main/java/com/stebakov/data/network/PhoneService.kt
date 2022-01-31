@@ -1,6 +1,7 @@
 package com.stebakov.data.network
 
 import com.stebakov.data.entity.PhoneServerModel
+import com.stebakov.domain.entity.network.PhoneDetailServerModel
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,7 +15,7 @@ interface PhoneService {
 
     @Headers("x-apikey: " + "61ddae2e95cb716ea5ee48e4")
     @GET("detail")
-    suspend fun getDetail(): Response<List<com.stebakov.domain.entity.PhoneDetailServerModel>>
+    suspend fun getDetail(): Response<List<PhoneDetailServerModel>>
 
     companion object{
         operator fun invoke() : PhoneService {

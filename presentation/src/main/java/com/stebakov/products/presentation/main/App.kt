@@ -2,7 +2,7 @@ package com.stebakov.products.presentation.main
 
 import android.app.Application
 import com.stebakov.data.network.PhoneService
-import com.stebakov.data.repository.BasePhoneCloudDataSource
+import com.stebakov.data.repository.PhoneRepositoryImpl
 import com.stebakov.products.presentation.viewmodel.phone.BasePhoneModel
 import com.stebakov.products.presentation.viewmodel.phone.PhoneViewModel
 import retrofit2.Retrofit
@@ -19,7 +19,7 @@ class App : Application() {
             .build()
         phoneViewModel = PhoneViewModel(
             BasePhoneModel(
-                BasePhoneCloudDataSource(
+                PhoneRepositoryImpl(
                     retrofit.create(
                         PhoneService::class.java
                     )

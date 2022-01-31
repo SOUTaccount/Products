@@ -15,7 +15,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.stebakov.products.R
 import com.stebakov.data.network.PhoneService
-import com.stebakov.data.repository.BasePhoneCloudDataSource
+import com.stebakov.data.repository.PhoneRepositoryImpl
 import com.stebakov.products.presentation.fragment.phonedetail.characteristics.Details
 import com.stebakov.products.presentation.fragment.phonedetail.characteristics.Features
 import com.stebakov.products.presentation.viewmodel.detail.BaseDetailModel
@@ -53,7 +53,7 @@ class PhoneDetailFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val phoneCloud = BasePhoneCloudDataSource(PhoneService())
+        val phoneCloud = PhoneRepositoryImpl(PhoneService())
         val model = BaseDetailModel(phoneCloud)
         factory = DetailViewModelFactory(model)
         viewModel = ViewModelProvider(this, factory).get(DetailViewModel::class.java)

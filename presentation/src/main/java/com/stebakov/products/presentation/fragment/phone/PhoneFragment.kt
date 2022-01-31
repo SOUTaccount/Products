@@ -2,7 +2,6 @@ package com.stebakov.products.presentation.fragment.phone
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stebakov.products.R
 import com.stebakov.data.network.PhoneService
-import com.stebakov.data.repository.BasePhoneCloudDataSource
+import com.stebakov.data.repository.PhoneRepositoryImpl
 import com.stebakov.products.presentation.viewmodel.phone.BasePhoneModel
 import com.stebakov.products.presentation.viewmodel.phone.PhoneViewModel
 import com.stebakov.products.presentation.viewmodel.phone.factory.PhoneViewModelFactory
@@ -39,7 +38,7 @@ class PhoneFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val phoneCloud = BasePhoneCloudDataSource(PhoneService())
+        val phoneCloud = PhoneRepositoryImpl(PhoneService())
         val model = BasePhoneModel(phoneCloud)
         factoryPhone = PhoneViewModelFactory(model)
         phoneViewModel = ViewModelProvider(this, factoryPhone).get(PhoneViewModel::class.java)

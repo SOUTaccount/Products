@@ -1,13 +1,5 @@
 package com.stebakov.products.presentation.viewmodel.phone.test
 
-import com.stebakov.domain.entity.PhoneBestSellerServerModel
-import com.stebakov.domain.entity.PhoneDetailServerModel
-import com.stebakov.domain.entity.PhoneHomeStoreServerModel
-import com.stebakov.data.entity.PhoneServerModel
-import com.stebakov.domain.usecase.GetDetailPhoneUseCase
-import com.stebakov.domain.usecase.GetPhonesUseCase
-import com.stebakov.products.presentation.viewmodel.phone.PhoneModel
-
 //class PhoneTestPhoneModel : PhoneModel {
 //    private val phoneHomeStore = PhoneHomeStoreServerModel(
 //        isNew = true,

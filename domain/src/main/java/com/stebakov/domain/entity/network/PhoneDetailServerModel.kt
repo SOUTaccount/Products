@@ -1,4 +1,4 @@
-package com.stebakov.domain.entity
+package com.stebakov.domain.entity.network
 
 import com.google.gson.annotations.Expose
 

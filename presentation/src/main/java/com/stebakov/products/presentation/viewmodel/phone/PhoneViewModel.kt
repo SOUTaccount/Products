@@ -1,13 +1,11 @@
 package com.stebakov.products.presentation.viewmodel.phone
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.stebakov.data.entity.PhoneServerModel
-import com.stebakov.domain.entity.PhoneBestSellerServerModel
-import com.stebakov.domain.entity.PhoneHomeStoreServerModel
+import com.stebakov.domain.entity.network.PhoneBestSellerServerModel
+import com.stebakov.domain.entity.network.PhoneHomeStoreServerModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -37,6 +35,12 @@ class PhoneViewModel(private val phoneModel: PhoneModel) : ViewModel() {
         } else {
             _phones.postValue(phoneModel.getPhonesHomeStoreUseCase.data)
             _phonesBestSeller.postValue(phoneModel.getPhonesBestSellerUseCase.data)
+        }
+    }
+
+    fun addFavoritePhones(){
+        viewModelScope.launch(Dispatchers.IO) {
+            phoneModel.addFavoritePhones(phonesBestSeller.value)
         }
     }
 
