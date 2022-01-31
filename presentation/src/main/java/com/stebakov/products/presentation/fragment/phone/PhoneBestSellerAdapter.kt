@@ -13,7 +13,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.stebakov.products.R
-import com.stebakov.domain.entity.PhoneBestSellerServerModel
+import com.stebakov.domain.entity.network.PhoneBestSellerServerModel
 
 class PhoneBestSellerAdapter(
     private val phoneBestSeller: List<PhoneBestSellerServerModel>,
