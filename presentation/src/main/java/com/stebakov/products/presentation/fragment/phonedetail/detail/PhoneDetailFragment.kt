@@ -10,9 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.stebakov.data.cache.Cache
+import com.stebakov.data.cache.database.FavoritePhonesDatabase
 import com.stebakov.products.R
 import com.stebakov.data.network.PhoneService
 import com.stebakov.data.repository.PhoneRepositoryImpl
@@ -53,7 +56,9 @@ class PhoneDetailFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val phoneCloud = PhoneRepositoryImpl(PhoneService())
+        val database = Room.databaseBuilder(requireContext(), FavoritePhonesDatabase::class.java,"FavoritePhone").build()
+        val cache = Cache(database.favoritePhonesDao)
+        val phoneCloud = PhoneRepositoryImpl(PhoneService(),cache)
         val model = BaseDetailModel(phoneCloud)
         factory = DetailViewModelFactory(model)
         viewModel = ViewModelProvider(this, factory).get(DetailViewModel::class.java)

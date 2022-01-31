@@ -12,6 +12,9 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.room.Room
+import com.stebakov.data.cache.Cache
+import com.stebakov.data.cache.database.FavoritePhonesDatabase
 import com.stebakov.products.R
 import com.stebakov.data.network.PhoneService
 import com.stebakov.data.repository.PhoneRepositoryImpl
@@ -53,7 +56,9 @@ class PhoneCharacteristicsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val phoneCloud = PhoneRepositoryImpl(PhoneService())
+        val database = Room.databaseBuilder(requireContext(), FavoritePhonesDatabase::class.java,"FavoritePhone").build()
+        val cache = Cache(database.favoritePhonesDao)
+        val phoneCloud = PhoneRepositoryImpl(PhoneService(),cache)
         val model = BaseDetailModel(phoneCloud)
         factory = DetailViewModelFactory(model)
         viewModel = ViewModelProvider(this, factory).get(DetailViewModel::class.java)

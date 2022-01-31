@@ -1,6 +1,9 @@
 package com.stebakov.products.presentation.main
 
 import android.app.Application
+import androidx.room.Room
+import com.stebakov.data.cache.Cache
+import com.stebakov.data.cache.database.FavoritePhonesDatabase
 import com.stebakov.data.network.PhoneService
 import com.stebakov.data.repository.PhoneRepositoryImpl
 import com.stebakov.products.presentation.viewmodel.phone.BasePhoneModel
@@ -17,12 +20,15 @@ class App : Application() {
             .baseUrl("https://db2021ecom-edca.restdb.io/rest/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+        val database = Room.databaseBuilder(this, FavoritePhonesDatabase::class.java,"FavoritePhone").build()
+        val cache = Cache(database.favoritePhonesDao)
         phoneViewModel = PhoneViewModel(
             BasePhoneModel(
                 PhoneRepositoryImpl(
                     retrofit.create(
                         PhoneService::class.java
-                    )
+                    ),
+                    cache
                 )
             )
         )
