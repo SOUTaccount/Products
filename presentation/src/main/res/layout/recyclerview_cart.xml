@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_bottom_item_my_cart"
+    android:background="@color/dark_blue">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/container_iv_photo_my_cart"
+        style="@style/ContainerForPhoneImageItemRVMyCart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_phone_photo_my_cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_phone_name_my_cart"
+        style="@style/TextViewItemRVMyCart"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/iv_container_add_product_may_cart"
+        app:layout_constraintStart_toEndOf="@id/container_iv_photo_my_cart"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_phone_price_my_cart"
+        style="@style/TextViewItemRVMyCart"
+        android:textColor="@color/orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/container_iv_photo_my_cart"
+        app:layout_constraintTop_toBottomOf="@id/tv_phone_name_my_cart" />
+
+    <ImageView
+        android:id="@+id/iv_basket_may_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_basket"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_container_add_product_may_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_end_iv_container_add_product_may_cart"
+        android:src="@drawable/ic_rectangle_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/iv_basket_may_cart"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_decrement_my_cart"
+        android:layout_width="@dimen/width_iv_decrement_my_cart"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_minus"
+        app:layout_constraintBottom_toTopOf="@id/tv_count_product_my_cart"
+        app:layout_constraintEnd_toEndOf="@id/iv_container_add_product_may_cart"
+        app:layout_constraintStart_toStartOf="@id/iv_container_add_product_may_cart"
+        app:layout_constraintTop_toTopOf="@id/iv_container_add_product_may_cart" />
+
+    <ImageView
+        android:id="@+id/iv_increment_my_cart"
+        android:layout_width="@dimen/width_iv_increment_my_cart"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintBottom_toBottomOf="@id/iv_container_add_product_may_cart"
+        app:layout_constraintEnd_toEndOf="@id/iv_container_add_product_may_cart"
+        app:layout_constraintStart_toStartOf="@id/iv_container_add_product_may_cart"
+        app:layout_constraintTop_toBottomOf="@id/tv_count_product_my_cart" />
+
+    <TextView
+        android:id="@+id/tv_count_product_my_cart"
+        style="@style/CountProductTextViewItemRVMyCart"
+        android:text="@string/count_basket"
+        android:textSize="@dimen/text_size_item_rv_my_cart"
+        app:layout_constraintBottom_toTopOf="@id/iv_increment_my_cart"
+        app:layout_constraintEnd_toEndOf="@id/iv_container_add_product_may_cart"
+        app:layout_constraintStart_toStartOf="@id/iv_container_add_product_may_cart"
+        app:layout_constraintTop_toBottomOf="@id/iv_decrement_my_cart" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@ class BasePhoneModel(private val repository: PhoneRepository) : PhoneModel {
     override suspend fun getPhones() = getPhonesHomeStoreUseCase.execute(repository)
     override suspend fun getPhonesBestSeller() = getPhonesBestSellerUseCase.execute(repository)
     override suspend fun getDetail() = getDetailPhoneUseCase.execute(repository)
-    override suspend fun addFavoritePhones(phoneBestSeller: List<PhoneBestSellerServerModel>?) {
-        addFavoritePhonesUseCase.execute(repository,phoneBestSeller)
+    override fun addFavoritePhones(phoneBestSeller: List<PhoneBestSellerServerModel>?) {
+        addFavoritePhonesUseCase.execute(repository, phoneBestSeller)
     }
 }

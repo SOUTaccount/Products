@@ -1,9 +1,12 @@
 package com.stebakov.products.presentation.viewmodel.phone
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.stebakov.data.cache.Cache
+import com.stebakov.domain.entity.database.FavoritePhone
 import com.stebakov.domain.entity.network.PhoneBestSellerServerModel
 import com.stebakov.domain.entity.network.PhoneHomeStoreServerModel
 import kotlinx.coroutines.Dispatchers
@@ -38,10 +41,21 @@ class PhoneViewModel(private val phoneModel: PhoneModel) : ViewModel() {
         }
     }
 
-    fun addFavoritePhones(){
+    //todo remove this method and create new logic for add favorite phones to db
+    fun addFavoritePhones() {
         viewModelScope.launch(Dispatchers.IO) {
-            phoneModel.addFavoritePhones(phonesBestSeller.value)
+            phoneModel.addFavoritePhones(phoneModel.getPhonesBestSeller())
         }
+        Log.d("CheckDB", "data = ${phoneModel.getPhonesBestSellerUseCase.data}")
+    }
+
+    fun getAllFavoritePhones(cache: Cache): List<FavoritePhone>? {
+        var favoritePhonesCache: List<FavoritePhone>? = null
+        viewModelScope.launch(Dispatchers.IO) {
+            favoritePhonesCache = cache.getFavoritePhones()
+            Log.d("CheckDB", "coroutines = ${cache.getFavoritePhones()}")
+        }
+        return favoritePhonesCache
     }
 
     override fun onCleared() {

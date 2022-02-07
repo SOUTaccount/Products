@@ -57,7 +57,7 @@ class PhoneCharacteristicsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val database = Room.databaseBuilder(requireContext(), FavoritePhonesDatabase::class.java,"FavoritePhone").build()
-        val cache = Cache(database.favoritePhonesDao)
+        val cache = Cache(database.favoritePhonesDao())
         val phoneCloud = PhoneRepositoryImpl(PhoneService(),cache)
         val model = BaseDetailModel(phoneCloud)
         factory = DetailViewModelFactory(model)

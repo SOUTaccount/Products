@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -19,6 +20,7 @@ class MainFragment : Fragment() {
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private val typeOfProducts = listOf(Phones, Computers, Health, Books, Gifts, Sport)
+    private lateinit var imgCart: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +29,11 @@ class MainFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
         viewPager = view.findViewById(R.id.viewpager_main)
         tabLayout = view.findViewById(R.id.tab_main)
+        imgCart = view.findViewById(R.id.iv_shop_navigation_view)
+        imgCart.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_mainFragment_to_cartFragment)
+        }
         val adapter = FragmentAdapter(requireActivity(), typeOfProducts)
         viewPager.adapter = adapter
         stopScroll(viewPager)

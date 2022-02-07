@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    tools:context=".presentation.fragment.cart.CartFragment">
+
+    <ImageView
+        android:id="@+id/button_back_container_my_cart"
+        style="@style/ButtonBackContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintBottom_toBottomOf="@id/button_back_container_my_cart"
+        app:layout_constraintEnd_toEndOf="@id/button_back_container_my_cart"
+        app:layout_constraintStart_toStartOf="@id/button_back_container_my_cart"
+        app:layout_constraintTop_toTopOf="@id/button_back_container_my_cart"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_header_my_cart"
+        style="@style/TitleTextViewMainScreenBottomSheetStyles"
+        android:layout_marginEnd="@dimen/margin_end_tv_header_my_cart"
+        android:text="@string/add_address"
+        android:textSize="@dimen/text_size_tv_header_my_cart"
+        app:layout_constraintBottom_toBottomOf="@id/battier_header_my_cart"
+        app:layout_constraintEnd_toStartOf="@id/iv_cart_container_my_cart" />
+
+    <ImageView
+        android:id="@+id/iv_cart_container_my_cart"
+        style="@style/ButtonItemMenuHeaderContainer"
+        app:layout_constraintBottom_toBottomOf="@id/battier_header_my_cart"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="@dimen/width_iv_geo_my_cart"
+        android:layout_height="@dimen/height_iv_geo_my_cart"
+        android:src="@drawable/geo_marker_image"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cart_container_my_cart"
+        app:layout_constraintEnd_toEndOf="@id/iv_cart_container_my_cart"
+        app:layout_constraintStart_toStartOf="@id/iv_cart_container_my_cart"
+        app:layout_constraintTop_toTopOf="@id/iv_cart_container_my_cart"
+        app:tint="@color/white" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/battier_header_my_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="button_back_container_my_cart" />
+
+    <TextView
+        android:id="@+id/tv_title_my_cart"
+        style="@style/TitleTextViewMyCartStyle"
+        android:text="@string/my_cart"
+        app:layout_constraintBottom_toTopOf="@id/bottom_sheet_my_cart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/battier_header_my_cart" />
+
+    <include
+        android:id="@+id/bottom_sheet_my_cart"
+        layout="@layout/bottom_sheet_cart"
+        android:layout_width="@dimen/zero"
+        android:layout_height="@dimen/zero"
+        android:layout_marginTop="@dimen/margin_top_bottom_sheet_my_cart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_my_cart" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

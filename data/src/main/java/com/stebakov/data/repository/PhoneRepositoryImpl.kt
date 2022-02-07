@@ -17,7 +17,8 @@ class PhoneRepositoryImpl(private val phoneService: PhoneService, private val ca
         apiRequest { phoneService.getPhone() }[0].phoneBestSeller
 
     override suspend fun getDetail() = apiRequest { phoneService.getDetail() }
-    override suspend fun addFavoritePhones(phoneBestSeller: List<PhoneBestSellerServerModel>?) {
+
+    override fun addFavoritePhones(phoneBestSeller: List<PhoneBestSellerServerModel>?) {
         phoneBestSeller?.forEach {
             cache.addFavoritePhone(it.toFavoritePhone())
         }

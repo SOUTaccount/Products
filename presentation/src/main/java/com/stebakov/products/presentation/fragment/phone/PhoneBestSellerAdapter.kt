@@ -43,7 +43,8 @@ class PhoneBestSellerAdapter(
                 notifyDataSetChanged()
             }
             picture.setOnClickListener {
-                Navigation.findNavController(navigationView).navigate(R.id.action_mainFragment_to_phoneDetailFragment)
+                Navigation.findNavController(navigationView)
+                    .navigate(R.id.action_mainFragment_to_phoneDetailFragment)
             }
         }
         Picasso.with(context)

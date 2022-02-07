@@ -12,5 +12,5 @@ interface PhoneRepository {
 
     suspend fun getDetail(): List<PhoneDetailServerModel>
 
-    suspend fun addFavoritePhones(phoneBestSeller : List<PhoneBestSellerServerModel>?)
+    fun addFavoritePhones(phoneBestSeller : List<PhoneBestSellerServerModel>?)
 }

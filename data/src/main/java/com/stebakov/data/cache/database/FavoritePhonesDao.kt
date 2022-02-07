@@ -7,10 +7,10 @@ import com.stebakov.domain.entity.database.FavoritePhone
 interface FavoritePhonesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addFavoritePhone(favoritePhone: FavoritePhone)
+    fun addFavoritePhone(favoritePhone: FavoritePhone)
 
     @Query("SELECT * FROM favoritephone")
-    suspend fun getAllFavoritePhones() : List<FavoritePhone>
+    suspend fun getAllFavoritePhones(): List<FavoritePhone>
 
     @Delete
     suspend fun deleteFavoritePhone(favoritePhone: FavoritePhone)
