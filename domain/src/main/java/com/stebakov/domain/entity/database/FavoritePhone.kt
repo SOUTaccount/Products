@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class FavoritePhone(
-    @PrimaryKey
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0,
     val name: String,
     val price: Int?,
     val picture: String,

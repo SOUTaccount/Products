@@ -12,25 +12,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class App : Application() {
-    lateinit var phoneViewModel: PhoneViewModel
+    lateinit var cache: Cache
 
     override fun onCreate() {
         super.onCreate()
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://db2021ecom-edca.restdb.io/rest/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val database = Room.databaseBuilder(this, FavoritePhonesDatabase::class.java,"FavoritePhone").build()
-        val cache = Cache(database.favoritePhonesDao)
-        phoneViewModel = PhoneViewModel(
-            BasePhoneModel(
-                PhoneRepositoryImpl(
-                    retrofit.create(
-                        PhoneService::class.java
-                    ),
-                    cache
-                )
-            )
-        )
+        val database =
+            FavoritePhonesDatabase.getInstance(this)?.favoritePhonesDao()!!
+        cache = Cache(database)
     }
 }

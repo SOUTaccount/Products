@@ -5,7 +5,7 @@ import com.stebakov.domain.repository.PhoneRepository
 
 class AddFavoritePhonesUseCase {
 
-    suspend fun execute(repository: PhoneRepository,phoneBestSeller: List<PhoneBestSellerServerModel>?){
+    fun execute(repository: PhoneRepository,phoneBestSeller: List<PhoneBestSellerServerModel>?){
         repository.addFavoritePhones(phoneBestSeller)
     }
 }

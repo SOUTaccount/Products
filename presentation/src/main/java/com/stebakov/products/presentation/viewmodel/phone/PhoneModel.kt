@@ -16,5 +16,5 @@ interface PhoneModel {
     suspend fun getPhones() : List<PhoneHomeStoreServerModel>
     suspend fun getPhonesBestSeller() : List<PhoneBestSellerServerModel>
     suspend fun getDetail() : PhoneDetailServerModel
-    suspend fun addFavoritePhones(phoneBestSeller: List<PhoneBestSellerServerModel>?)
+    fun addFavoritePhones(phoneBestSeller: List<PhoneBestSellerServerModel>?)
 }

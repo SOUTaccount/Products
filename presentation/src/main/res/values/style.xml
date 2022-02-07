@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GeoImageViewFragmentMainScreenStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/geo_marker_image</item>
+        <item name="android:layout_marginEnd">@dimen/margin_end_iv_geo</item>
+    </style>
+
+    <style name="GeoTextViewFragmentMainScreenStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_tv_geo</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:textSize">@dimen/auxiliary_text_size</item>
+        <item name="android:text">@string/tv_geo_text</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="ArrowHeaderImageViewFragmentMainScreenStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/arrow_header</item>
+        <item name="android:layout_marginStart">@dimen/margin_start_iv_arrow_header</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bottom_is_arrow_header</item>
+    </style>
+
+    <style name="FilterImageViewFragmentMainScreenStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/filter_image</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_iv_filter_fragment_main_screen
+        </item>
+        <item name="android:layout_marginEnd">@dimen/margin_end_iv_filter_fragment_main_screen
+        </item>
+    </style>
+
+    <style name="TextInputLayoutMainScreenStyle">
+        <item name="android:layout_width">@dimen/zero</item>
+        <item name="android:layout_height">@dimen/height_ed_search</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radius_ed_search</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radius_ed_search</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radius_ed_search</item>
+        <item name="boxCornerRadiusTopStart">@dimen/radius_ed_search</item>
+        <item name="android:layout_marginEnd">@dimen/margin_end_ed_search</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_ed_search</item>
+        <item name="android:layout_marginStart">@dimen/margin_start_ed_search</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeWidth">@dimen/zero</item>
+        <item name="startIconTint">@color/orange</item>
+        <item name="hintTextAppearance">@style/TextAppearanceTextInputLayoutHint</item>
+    </style>
+
+    <style name="TextAppearanceTextInputLayoutHint">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">@dimen/et_search_text_size</item>
+    </style>
+
+    <style name="NavigationViewFragmentMainScreenStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_navigation_view</item>
+        <item name="cardCornerRadius">@dimen/max_radius</item>
+        <item name="cardBackgroundColor">@color/dark_blue</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="LinearLayoutNavigationViewFragmentMainScreenStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginStart">
+            @dimen/margin_start_container_for_view_navigation_view
+        </item>
+        <item name="android:layout_marginEnd">@dimen/margin_end_container_for_view_navigation_view
+        </item>
+    </style>
+
+    <style name="HeaderTextViewFragmentMainScreenStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:textSize">@dimen/header_text_size</item>
+        <item name="android:layout_marginStart">@dimen/header_margin_start</item>
+    </style>
+
+    <style name="SeeMoreViewAllTextViewFragmentMainScreenStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">@dimen/see_more_margin_end</item>
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">@dimen/auxiliary_text_size</item>
+        <item name="android:textColor">@color/orange</item>
+    </style>
+
+    <style name="ButtonBackContainer">
+        <item name="android:layout_width">@dimen/size_iv_close_container</item>
+        <item name="android:layout_height">@dimen/size_iv_close_container</item>
+        <item name="android:src">@drawable/ic_rectangle</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_button_back</item>
+        <item name="android:layout_marginStart">@dimen/margin_start_button_back</item>
+    </style>
+
+    <style name="TitleTextViewMainScreenBottomSheetStyles">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_bottom_sheet_main_screen</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="ButtonItemMenuHeaderContainer">
+        <item name="android:layout_width">@dimen/size_iv_close_container</item>
+        <item name="android:layout_height">@dimen/size_iv_close_container</item>
+        <item name="android:src">@drawable/ic_rectangle_mini_orange</item>
+        <item name="android:layout_marginEnd">@dimen/margin_end_item_menu_header</item>
+    </style>
+
+    <style name="TitleTextViewMyCartStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_tv_title_my_cart</item>
+        <item name="android:layout_marginStart">@dimen/margin_start_tv_title_my_cart</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:textSize">@dimen/text_size_tv_title_my_cart</item>
+    </style>
+
+    <style name="CartRecyclerViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/zero</item>
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_rv_my_cart</item>
+        <item name="android:layout_marginStart">@dimen/margin_start_rv_my_cart</item>
+        <item name="android:layout_marginEnd">@dimen/margin_end_rv_my_cart</item>
+    </style>
+
+    <style name="ButtonCheckoutMyCartViewStyle">
+        <item name="android:layout_width">@dimen/zero</item>
+        <item name="android:layout_height">@dimen/height_button_checkout_my_cart</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:backgroundTint">@color/orange</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bottom_button_checkout_my_cart</item>
+        <item name="android:layout_marginStart">@dimen/margin_start_button_checkout_my_cart</item>
+        <item name="android:layout_marginEnd">@dimen/margin_end_button_checkout_my_cart</item>
+        <item name="textAllCaps">false</item>
+        <item name="cornerRadius">@dimen/standard_card_radius</item>
+    </style>
+
+    <style name="OutcomeTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:layout_marginStart">@dimen/margin_start_tv_delivery_my_cart</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_outcome_my_cart</item>
+    </style>
+
+    <style name="OutcomeValueTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_marginEnd">@dimen/margin_end_tv_delivery_value_my_cart</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_outcome_my_cart</item>
+    </style>
+
+    <style name="LineOneMyCartStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_line1_my_cart</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bottom_line1_my_cart</item>
+        <item name="android:background">@color/dark_grey</item>
+    </style>
+
+    <style name="LineTwoMyCartStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_line2_my_cart</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bottom_line2_my_cart</item>
+        <item name="android:background">@color/dark_grey</item>
+    </style>
+
+    <!--    Cart Screen -->
+
+    <style name="ContainerForPhoneImageItemRVMyCart">
+        <item name="android:layout_width">@dimen/size_container_iv_photo_my_cart</item>
+        <item name="android:layout_height">@dimen/size_container_iv_photo_my_cart</item>
+        <item name="cardCornerRadius">@dimen/standard_card_radius</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="TextViewItemRVMyCart">
+        <item name="android:layout_width">@dimen/zero</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_item_rv_my_cart</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginStart">@dimen/margin_start_tv_phone_name_my_cart</item>
+    </style>
+
+    <style name="CountProductTextViewItemRVMyCart">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_item_rv_my_cart</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>
