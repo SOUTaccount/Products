@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
@@ -34,6 +36,7 @@ import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 
 class PhoneDetailFragment : Fragment() {
     private lateinit var recyclerViewImage: DiscreteScrollView
+    private lateinit var ivCart: ImageView
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private lateinit var factory: DetailViewModelFactory
@@ -47,6 +50,7 @@ class PhoneDetailFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.phone_detail_fragment, container, false)
         recyclerViewImage = view.findViewById(R.id.rv_image_phone_product_details)
+        ivCart = view.findViewById(R.id.iv_cart_container_my_cart)
         viewPager = view.findViewById(R.id.viewpager_detail)
         tabLayout = view.findViewById(R.id.tab_detail)
         phoneName = view.findViewById(R.id.tv_phone_name_detail)
@@ -55,6 +59,10 @@ class PhoneDetailFragment : Fragment() {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = characteristics[position].name
         }.attach()
+        ivCart.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_phoneDetailFragment_to_cartFragment)
+        }
         return view
     }
 
@@ -75,11 +83,12 @@ class PhoneDetailFragment : Fragment() {
             recyclerViewImage.also {
                 it.setItemTransformer(
                     ScaleTransformer.Builder()
-                    .setMaxScale(1.0f)
-                    .setMinScale(0.3f)
-                    .setPivotX(Pivot.X.CENTER) // CENTER is a default one
-                    .setPivotY(Pivot.Y.CENTER) // CENTER is a default one
-                    .build())
+                        .setMaxScale(1.0f)
+                        .setMinScale(0.3f)
+                        .setPivotX(Pivot.X.CENTER)
+                        .setPivotY(Pivot.Y.CENTER)
+                        .build()
+                )
                 it.adapter = ImageDetailAdapter(phoneDetail, requireContext())
                 phoneName.text = phoneDetail.title
             }
