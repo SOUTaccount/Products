@@ -26,10 +26,14 @@ import com.stebakov.products.presentation.viewmodel.detail.DetailViewModel
 import com.stebakov.products.presentation.viewmodel.detail.factory.DetailViewModelFactory
 import com.stebakov.products.presentation.fragment.phonedetail.characteristics.FragmentCharacteristicsAdapter
 import com.stebakov.products.presentation.fragment.phonedetail.characteristics.Shop
+import com.yarolegovich.discretescrollview.DiscreteScrollView
+import com.yarolegovich.discretescrollview.transform.DiscreteScrollItemTransformer
+import com.yarolegovich.discretescrollview.transform.Pivot
+import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 
 
 class PhoneDetailFragment : Fragment() {
-    private lateinit var recyclerViewImage: RecyclerView
+    private lateinit var recyclerViewImage: DiscreteScrollView
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private lateinit var factory: DetailViewModelFactory
@@ -42,7 +46,7 @@ class PhoneDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.phone_detail_fragment, container, false)
-        recyclerViewImage = view.findViewById(R.id.rv_image_phone_detail)
+        recyclerViewImage = view.findViewById(R.id.rv_image_phone_product_details)
         viewPager = view.findViewById(R.id.viewpager_detail)
         tabLayout = view.findViewById(R.id.tab_detail)
         phoneName = view.findViewById(R.id.tv_phone_name_detail)
@@ -69,8 +73,13 @@ class PhoneDetailFragment : Fragment() {
         viewModel.getDetail()
         viewModel.phoneDetail.observe(viewLifecycleOwner, Observer { phoneDetail ->
             recyclerViewImage.also {
-                it.layoutManager =
-                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                it.setItemTransformer(
+                    ScaleTransformer.Builder()
+                    .setMaxScale(1.0f)
+                    .setMinScale(0.3f)
+                    .setPivotX(Pivot.X.CENTER) // CENTER is a default one
+                    .setPivotY(Pivot.Y.CENTER) // CENTER is a default one
+                    .build())
                 it.adapter = ImageDetailAdapter(phoneDetail, requireContext())
                 phoneName.text = phoneDetail.title
             }

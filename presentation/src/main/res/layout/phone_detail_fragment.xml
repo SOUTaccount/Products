@@ -4,46 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     tools:context=".presentation.fragment.phonedetail.detail.PhoneDetailFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_image_phone_detail"
+    <ImageView
+        android:id="@+id/button_back_container_product_details"
+        style="@style/ButtonBackContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintBottom_toBottomOf="@id/button_back_container_product_details"
+        app:layout_constraintEnd_toEndOf="@id/button_back_container_product_details"
+        app:layout_constraintStart_toStartOf="@id/button_back_container_product_details"
+        app:layout_constraintTop_toTopOf="@id/button_back_container_product_details"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_header_product_details"
+        style="@style/TitleTextViewMainScreenBottomSheetStyles"
+        android:text="@string/product_details"
+        app:layout_constraintBottom_toBottomOf="@id/battier_header_product_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_cart_container_product_details"
+        style="@style/ButtonItemMenuHeaderContainer"
+        app:layout_constraintBottom_toBottomOf="@id/battier_header_product_details"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="@dimen/width_iv_cart_product_details"
+        android:layout_height="@dimen/height_iv_cart_product_details"
+        android:src="@drawable/main_cart"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cart_container_product_details"
+        app:layout_constraintEnd_toEndOf="@id/iv_cart_container_product_details"
+        app:layout_constraintStart_toStartOf="@id/iv_cart_container_product_details"
+        app:layout_constraintTop_toTopOf="@id/iv_cart_container_product_details" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/battier_header_product_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="button_back_container_product_details" />
+
+    <com.yarolegovich.discretescrollview.DiscreteScrollView
+        android:id="@+id/rv_image_phone_product_details"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_detail" />
+        app:layout_constraintTop_toBottomOf="@+id/battier_header_product_details" />
+
+    <!--    <TextView-->
+<!--        android:id="@+id/tv_title_detail"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:text="@string/product_detail_title"-->
+<!--        android:textColor="@color/dark_blue"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/tv_phone_name_detail"
-        android:layout_width="match_parent"
-        android:layout_height="23dp"
+        style="@style/ModelPhoneTeViewBottomSheetProductDetails"
         android:layout_marginTop="52dp"
-        android:paddingLeft="35dp"
-        android:textColor="@color/dark_blue"
-        android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.217"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_image_phone_detail"
+        app:layout_constraintTop_toBottomOf="@+id/rv_image_phone_product_details"
         tools:text="Galaxy Note 20 Ultra" />
-
-    <TextView
-        android:id="@+id/tv_title_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:textSize="18sp"
-        android:text="@string/product_detail_title"
-        android:textColor="@color/dark_blue"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_detail"
@@ -52,13 +94,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_phone_name_detail"
-        app:tabTextAppearance="@style/CustomText" />
+        app:tabTextAppearance="@style/TextAppearanceTabLayoutBottomSheetProductDetails" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager_detail"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="5dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

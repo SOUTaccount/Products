@@ -25,7 +25,6 @@ class ImageDetailAdapter(
     override fun onBindViewHolder(p0: ImageViewHolder, p1: Int) {
         Picasso.with(context)
             .load(phoneDetail.images[p1])
-            .fit()
             .placeholder(R.mipmap.ic_launcher)
             .error(R.mipmap.ic_launcher)
             .into(p0.image)

@@ -9,7 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
@@ -28,8 +30,8 @@ class PhoneCharacteristicsFragment : Fragment() {
     private lateinit var camera: TextView
     private lateinit var ssd: TextView
     private lateinit var sd: TextView
-    private lateinit var imgBtnFirstColor: ImageButton
-    private lateinit var imgBtnSecondColor: ImageButton
+    private lateinit var imgBtnFirstColor: ImageView
+    private lateinit var imgBtnSecondColor: ImageView
     private lateinit var btnMinMemory: Button
     private lateinit var btnMaxMemory: Button
     private lateinit var btnAddToCart: Button
@@ -56,9 +58,13 @@ class PhoneCharacteristicsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val database = Room.databaseBuilder(requireContext(), FavoritePhonesDatabase::class.java,"FavoritePhone").build()
+        val database = Room.databaseBuilder(
+            requireContext(),
+            FavoritePhonesDatabase::class.java,
+            "FavoritePhone"
+        ).build()
         val cache = Cache(database.favoritePhonesDao())
-        val phoneCloud = PhoneRepositoryImpl(PhoneService(),cache)
+        val phoneCloud = PhoneRepositoryImpl(PhoneService(), cache)
         val model = BaseDetailModel(phoneCloud)
         factory = DetailViewModelFactory(model)
         viewModel = ViewModelProvider(this, factory).get(DetailViewModel::class.java)
@@ -68,12 +74,32 @@ class PhoneCharacteristicsFragment : Fragment() {
             camera.text = phoneDetail.camera
             ssd.text = phoneDetail.ssd
             sd.text = phoneDetail.sd
-            imgBtnFirstColor.setBackgroundColor(Color.parseColor(phoneDetail.color[0]))
-            imgBtnSecondColor.setBackgroundColor(Color.parseColor(phoneDetail.color[1]))
+            imgBtnFirstColor.setColorFilter(Color.parseColor(phoneDetail.color[0]))
+            imgBtnSecondColor.setColorFilter(Color.parseColor(phoneDetail.color[1]))
             btnMinMemory.text = phoneDetail.capacity[0]
             btnMaxMemory.text = phoneDetail.capacity[1]
-            btnAddToCart.text = "${resources.getString(R.string.add_to_cart_text)} ${phoneDetail.price}"
+            btnMinMemory.setOnClickListener {
+                with(btnMinMemory) {
+                    setBackgroundColor(resources.getColor(R.color.orange, context.theme))
+                    setTextColor(resources.getColor(R.color.white, context.theme))
+                }
+                with(btnMaxMemory) {
+                    setBackgroundColor(resources.getColor(R.color.white, context.theme))
+                    setTextColor(resources.getColor(R.color.grey, context.theme))
+                }
+            }
+            btnMaxMemory.setOnClickListener {
+                with(btnMaxMemory) {
+                    setBackgroundColor(resources.getColor(R.color.orange, context.theme))
+                    setTextColor(resources.getColor(R.color.white, context.theme))
+                }
+                with(btnMinMemory) {
+                    setBackgroundColor(resources.getColor(R.color.white, context.theme))
+                    setTextColor(resources.getColor(R.color.grey, context.theme))
+                }
+            }
+            btnAddToCart.text =
+                "${resources.getString(R.string.add_to_cart_text)} ${phoneDetail.price}"
         })
     }
-
 }
