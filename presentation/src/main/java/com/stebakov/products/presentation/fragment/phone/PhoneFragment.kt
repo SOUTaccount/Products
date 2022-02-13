@@ -22,6 +22,8 @@ import com.stebakov.products.presentation.viewmodel.phone.BasePhoneModel
 import com.stebakov.products.presentation.viewmodel.phone.PhoneViewModel
 import com.stebakov.products.presentation.viewmodel.phone.factory.PhoneViewModelFactory
 import com.yarolegovich.discretescrollview.DiscreteScrollView
+import com.yarolegovich.discretescrollview.transform.Pivot
+import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 
 class PhoneFragment : Fragment() {
 
@@ -56,7 +58,14 @@ class PhoneFragment : Fragment() {
         phoneViewModel.phones.observe(viewLifecycleOwner, Observer { phones ->
             discreteScrollViewHomeStore.also {
                 it.setHasFixedSize(true)
+                it.setItemTransformer(ScaleTransformer.Builder()
+                    .setMaxScale(1.05f)
+                    .setMinScale(0.8f)
+                    .setPivotX(Pivot.X.CENTER) // CENTER is a default one
+                    .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
+                    .build())
                 it.adapter = PhoneHomeStoreAdapter(phones, requireContext())
+//                it.scrollToPosition(1)
             }
         })
         phoneViewModel.phonesBestSeller.observe(viewLifecycleOwner) { phonesBestSeller ->
