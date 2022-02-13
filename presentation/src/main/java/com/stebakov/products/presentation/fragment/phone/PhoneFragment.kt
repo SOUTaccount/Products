@@ -9,11 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
-import com.stebakov.data.cache.Cache
-import com.stebakov.data.cache.database.FavoritePhonesDatabase
 import com.stebakov.products.R
 import com.stebakov.data.network.PhoneService
 import com.stebakov.data.repository.PhoneRepositoryImpl
@@ -61,11 +57,10 @@ class PhoneFragment : Fragment() {
                 it.setItemTransformer(ScaleTransformer.Builder()
                     .setMaxScale(1.05f)
                     .setMinScale(0.8f)
-                    .setPivotX(Pivot.X.CENTER) // CENTER is a default one
-                    .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
+                    .setPivotX(Pivot.X.CENTER)
+                    .setPivotY(Pivot.Y.BOTTOM)
                     .build())
                 it.adapter = PhoneHomeStoreAdapter(phones, requireContext())
-//                it.scrollToPosition(1)
             }
         })
         phoneViewModel.phonesBestSeller.observe(viewLifecycleOwner) { phonesBestSeller ->

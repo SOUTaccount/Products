@@ -41,7 +41,6 @@ class PhoneViewModel(private val phoneModel: PhoneModel) : ViewModel() {
         }
     }
 
-    //todo remove this method and create new logic for add favorite phones to db
     fun addFavoritePhones() {
         viewModelScope.launch(Dispatchers.IO) {
             phoneModel.addFavoritePhones(phoneModel.getPhonesBestSeller())
@@ -53,7 +52,6 @@ class PhoneViewModel(private val phoneModel: PhoneModel) : ViewModel() {
         var favoritePhonesCache: List<FavoritePhone>? = null
         viewModelScope.launch(Dispatchers.IO) {
             favoritePhonesCache = cache.getFavoritePhones()
-            Log.d("CheckDB", "coroutines = ${cache.getFavoritePhones()}")
         }
         return favoritePhonesCache
     }

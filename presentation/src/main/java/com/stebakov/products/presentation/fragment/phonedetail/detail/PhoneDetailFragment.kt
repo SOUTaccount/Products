@@ -50,7 +50,7 @@ class PhoneDetailFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.phone_detail_fragment, container, false)
         recyclerViewImage = view.findViewById(R.id.rv_image_phone_product_details)
-        ivCart = view.findViewById(R.id.iv_cart_container_my_cart)
+        ivCart = view.findViewById(R.id.iv_cart_container_product_details)
         viewPager = view.findViewById(R.id.viewpager_detail)
         tabLayout = view.findViewById(R.id.tab_detail)
         phoneName = view.findViewById(R.id.tv_phone_name_detail)
