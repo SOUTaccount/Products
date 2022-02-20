@@ -40,5 +40,4 @@ class CartAdapter(private val listBasket: List<Basket>?, private val context: Co
             }
         }
     }
-
 }
