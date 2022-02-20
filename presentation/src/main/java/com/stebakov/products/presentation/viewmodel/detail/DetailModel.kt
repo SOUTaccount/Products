@@ -4,6 +4,7 @@ import com.stebakov.domain.entity.network.PhoneDetailServerModel
 import com.stebakov.domain.usecase.GetDetailPhoneUseCase
 
 interface DetailModel {
-    val getDetailPhoneUseCase: GetDetailPhoneUseCase
-    suspend fun getDetail() : PhoneDetailServerModel
+    suspend fun getDetail(): PhoneDetailServerModel
+    fun checkLocalData(): Boolean
+    fun getLocalDataDetailPhone(): PhoneDetailServerModel?
 }

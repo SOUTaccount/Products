@@ -77,6 +77,12 @@ dependencies {
     //DiscreteScrollView
     implementation "com.yarolegovich:discrete-scrollview:1.5.1"
 
+    //Koin
+    def koin_version = "3.1.2"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    testImplementation "io.insert-koin:koin-test:$koin_version"
+
     implementation project(':domain')
     implementation project(':data')
 }

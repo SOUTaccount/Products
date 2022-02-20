@@ -1,7 +1,6 @@
 package com.stebakov.domain.entity.network
 
 import com.google.gson.annotations.SerializedName
-import com.stebakov.domain.entity.PhoneBestSeller
 import com.stebakov.domain.entity.database.FavoritePhone
 
 class PhoneBestSellerServerModel(

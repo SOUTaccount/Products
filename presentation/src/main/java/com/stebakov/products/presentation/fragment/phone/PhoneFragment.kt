@@ -1,8 +1,6 @@
 package com.stebakov.products.presentation.fragment.phone
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,20 +9,15 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stebakov.products.R
-import com.stebakov.data.network.PhoneService
-import com.stebakov.data.repository.PhoneRepositoryImpl
-import com.stebakov.products.presentation.main.App
-import com.stebakov.products.presentation.viewmodel.phone.BasePhoneModel
 import com.stebakov.products.presentation.viewmodel.phone.PhoneViewModel
-import com.stebakov.products.presentation.viewmodel.phone.factory.PhoneViewModelFactory
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.Pivot
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PhoneFragment : Fragment() {
 
-    private lateinit var phoneViewModel: PhoneViewModel
-    private lateinit var factoryPhone: PhoneViewModelFactory
+    private val phoneViewModel by viewModel<PhoneViewModel>()
     private lateinit var discreteScrollViewHomeStore: DiscreteScrollView
     private lateinit var recyclerViewBestSeller: RecyclerView
     private lateinit var navigationView: View
@@ -42,24 +35,19 @@ class PhoneFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val cache = (requireActivity().application as App).cache
-        val phoneCloud = PhoneRepositoryImpl(PhoneService(), cache)
-        val model = BasePhoneModel(phoneCloud)
-        factoryPhone = PhoneViewModelFactory(model)
-        phoneViewModel = ViewModelProvider(this, factoryPhone)[PhoneViewModel::class.java]
         phoneViewModel.getPhone()
         phoneViewModel.addFavoritePhones()
-        val favoriteCachePhones = phoneViewModel.getAllFavoritePhones(cache)
-        Log.d("CheckDB", "room list = $favoriteCachePhones")
         phoneViewModel.phones.observe(viewLifecycleOwner, Observer { phones ->
             discreteScrollViewHomeStore.also {
                 it.setHasFixedSize(true)
-                it.setItemTransformer(ScaleTransformer.Builder()
-                    .setMaxScale(1.05f)
-                    .setMinScale(0.8f)
-                    .setPivotX(Pivot.X.CENTER)
-                    .setPivotY(Pivot.Y.BOTTOM)
-                    .build())
+                it.setItemTransformer(
+                    ScaleTransformer.Builder()
+                        .setMaxScale(1.05f)
+                        .setMinScale(0.8f)
+                        .setPivotX(Pivot.X.CENTER)
+                        .setPivotY(Pivot.Y.BOTTOM)
+                        .build()
+                )
                 it.adapter = PhoneHomeStoreAdapter(phones, requireContext())
             }
         })

@@ -1,6 +1,5 @@
 package com.stebakov.products.presentation.viewmodel.phone
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,9 +25,7 @@ class PhoneViewModel(private val phoneModel: PhoneModel) : ViewModel() {
         get() = _phonesBestSeller
 
     fun getPhone() {
-        if (phoneModel.getPhonesHomeStoreUseCase.data == null &&
-            phoneModel.getPhonesBestSellerUseCase.data == null
-        ) {
+        if (phoneModel.checkLocalData()) {
             currentJob?.cancel()
             viewModelScope.launch(Dispatchers.IO) {
                 _phones.postValue(phoneModel.getPhones())
@@ -36,8 +33,8 @@ class PhoneViewModel(private val phoneModel: PhoneModel) : ViewModel() {
             }
                 .also { currentJob = it }
         } else {
-            _phones.postValue(phoneModel.getPhonesHomeStoreUseCase.data)
-            _phonesBestSeller.postValue(phoneModel.getPhonesBestSellerUseCase.data)
+            _phones.postValue(phoneModel.getLocalDataHomeStore())
+            _phonesBestSeller.postValue(phoneModel.getLocalDataBestSeller())
         }
     }
 
@@ -45,7 +42,6 @@ class PhoneViewModel(private val phoneModel: PhoneModel) : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             phoneModel.addFavoritePhones(phoneModel.getPhonesBestSeller())
         }
-        Log.d("CheckDB", "data = ${phoneModel.getPhonesBestSellerUseCase.data}")
     }
 
     fun getAllFavoritePhones(cache: Cache): List<FavoritePhone>? {
