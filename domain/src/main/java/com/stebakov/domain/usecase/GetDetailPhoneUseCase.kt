@@ -5,6 +5,7 @@ import com.stebakov.domain.repository.PhoneRepository
 
 class GetDetailPhoneUseCase {
     var data: PhoneDetailServerModel? = null
+        private set
 
     suspend fun execute(repository: PhoneRepository): PhoneDetailServerModel {
         data = repository.getDetail()[0]

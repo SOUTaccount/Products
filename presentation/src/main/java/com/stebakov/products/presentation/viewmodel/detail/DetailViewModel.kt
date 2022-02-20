@@ -17,14 +17,14 @@ class DetailViewModel(private val detailModel: DetailModel) : ViewModel() {
         get() = _phoneDetail
 
     fun getDetail() {
-        if (detailModel.getDetailPhoneUseCase.data == null) {
+        if (detailModel.checkLocalData()) {
             currentJob?.cancel()
             viewModelScope.launch(Dispatchers.IO) {
                 _phoneDetail.postValue(detailModel.getDetail())
             }
                 .also { currentJob = it }
         } else {
-            _phoneDetail.postValue(detailModel.getDetailPhoneUseCase.data)
+            _phoneDetail.postValue(detailModel.getLocalDataDetailPhone())
         }
     }
 

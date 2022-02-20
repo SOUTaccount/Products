@@ -18,16 +18,14 @@ class CartViewModel(private val cartModel: CartModel) : ViewModel() {
         get() = _cart
 
     fun getCart() {
-        if (cartModel.getCartUseCase.data == null &&
-            cartModel.getCartUseCase.data == null
-        ) {
+        if (cartModel.checkLocalData()) {
             currentJob?.cancel()
             viewModelScope.launch(Dispatchers.IO) {
                 _cart.postValue(cartModel.getCart())
             }
                 .also { currentJob = it }
         } else {
-            _cart.postValue(cartModel.getCartUseCase.data)
+            _cart.postValue(cartModel.getCartLocalData())
         }
     }
 }

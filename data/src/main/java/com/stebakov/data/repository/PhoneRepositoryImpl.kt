@@ -8,8 +8,7 @@ import com.stebakov.domain.entity.network.PhoneBestSellerServerModel
 import com.stebakov.domain.repository.PhoneRepository
 
 class PhoneRepositoryImpl(private val phoneService: PhoneService, private val cache: Cache) :
-    SafeApiRequest(),
-    PhoneRepository {
+    SafeApiRequest(), PhoneRepository {
 
     override suspend fun getPhoneHomeStore() =
         apiRequest { phoneService.getPhone() }[0].phoneHomeStore

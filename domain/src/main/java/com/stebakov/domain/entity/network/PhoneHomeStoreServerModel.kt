@@ -1,7 +1,6 @@
 package com.stebakov.domain.entity.network
 
 import com.google.gson.annotations.SerializedName
-import com.stebakov.domain.entity.PhoneHomeStore
 
 class PhoneHomeStoreServerModel(
     @SerializedName("id")
@@ -18,6 +17,4 @@ class PhoneHomeStoreServerModel(
     val picture: String,
     @SerializedName("is_buy")
     var isBuy: Boolean?
-) {
-    fun toHomeStore() = PhoneHomeStore(isNew,isFavorites,title,subtitle,picture,isBuy)
-}
+)

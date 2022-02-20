@@ -8,21 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.DrawableRes
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.room.Room
-import com.stebakov.data.cache.Cache
-import com.stebakov.data.cache.database.FavoritePhonesDatabase
 import com.stebakov.products.R
-import com.stebakov.data.network.PhoneService
-import com.stebakov.data.repository.PhoneRepositoryImpl
-import com.stebakov.products.presentation.viewmodel.detail.BaseDetailModel
 import com.stebakov.products.presentation.viewmodel.detail.DetailViewModel
-import com.stebakov.products.presentation.viewmodel.detail.factory.DetailViewModelFactory
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class PhoneCharacteristicsFragment : Fragment() {
@@ -35,8 +26,7 @@ class PhoneCharacteristicsFragment : Fragment() {
     private lateinit var btnMinMemory: Button
     private lateinit var btnMaxMemory: Button
     private lateinit var btnAddToCart: Button
-    private lateinit var viewModel: DetailViewModel
-    private lateinit var factory: DetailViewModelFactory
+    private val detailViewModel by viewModel<DetailViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,18 +48,8 @@ class PhoneCharacteristicsFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val database = Room.databaseBuilder(
-            requireContext(),
-            FavoritePhonesDatabase::class.java,
-            "FavoritePhone"
-        ).build()
-        val cache = Cache(database.favoritePhonesDao())
-        val phoneCloud = PhoneRepositoryImpl(PhoneService(), cache)
-        val model = BaseDetailModel(phoneCloud)
-        factory = DetailViewModelFactory(model)
-        viewModel = ViewModelProvider(this, factory).get(DetailViewModel::class.java)
-        viewModel.getDetail()
-        viewModel.phoneDetail.observe(viewLifecycleOwner, Observer { phoneDetail ->
+        detailViewModel.getDetail()
+        detailViewModel.phoneDetail.observe(viewLifecycleOwner, Observer { phoneDetail ->
             cpu.text = phoneDetail.cpu
             camera.text = phoneDetail.camera
             ssd.text = phoneDetail.ssd
