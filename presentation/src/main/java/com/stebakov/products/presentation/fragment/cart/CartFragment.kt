@@ -3,8 +3,7 @@ package com.stebakov.products.presentation.fragment.cart
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import androidx.lifecycle.Observer
-import com.stebakov.domain.helpers.PriceHelper
+import com.stebakov.domain.helpers.PriceHelperImpl
 import com.stebakov.products.R
 import com.stebakov.products.databinding.FragmentCartBinding
 import com.stebakov.products.presentation.viewmodel.cart.CartViewModel
@@ -20,12 +19,17 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         viewBinding = FragmentCartBinding.bind(view)
         cartViewModel.getCart()
         viewBinding!!.bottomSheetMyCart.rvMyCart.adapter
-        cartViewModel.cart.observe(viewLifecycleOwner, Observer { cart ->
+        cartViewModel.cart.observe(viewLifecycleOwner) { cart ->
             viewBinding?.bottomSheetMyCart?.also {
                 it.rvMyCart.adapter = CartAdapter(cart.basket, requireContext())
-                it.tvTotalValueMyCart.text = PriceHelper().parsePriceToCart(cart.total)
+                it.tvTotalValueMyCart.text = PriceHelperImpl().parsePriceToCart(cart.total)
                 it.tvDeliveryValueMyCart.text = cart.delivery
             }
-        })
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewBinding = null
     }
 }

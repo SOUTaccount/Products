@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.stebakov.domain.entity.network.Basket
-import com.stebakov.domain.helpers.PriceHelper
+import com.stebakov.domain.helpers.PriceHelperImpl
 import com.stebakov.products.R
 import com.stebakov.products.databinding.RecyclerviewCartBinding
 
@@ -25,10 +25,10 @@ class CartAdapter(private val listBasket: List<Basket>?, private val context: Co
 
     override fun getItemCount() = listBasket!!.size
 
-    inner class CartViewHolder(private val binding: RecyclerviewCartBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class CartViewHolder(private val viewBinding: RecyclerviewCartBinding) :
+        RecyclerView.ViewHolder(viewBinding.root) {
         fun bind(item: Basket) {
-            with(binding) {
+            with(viewBinding) {
                 Picasso.with(context)
                     .load(item.images)
                     .fit()
@@ -36,7 +36,7 @@ class CartAdapter(private val listBasket: List<Basket>?, private val context: Co
                     .error(R.mipmap.ic_launcher)
                     .into(ivPhonePhotoMyCart)
                 tvPhoneNameMyCart.text = item.title
-                tvPhonePriceMyCart.text = PriceHelper().parsePriceToCartAdapter(item.price)
+                tvPhonePriceMyCart.text = PriceHelperImpl().parsePriceToCartAdapter(item.price)
             }
         }
     }

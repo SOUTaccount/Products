@@ -40,8 +40,10 @@
         <entry key="presentation/src/main/res/drawable-v24/ic_line.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable-v24/ic_rectangle.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable-v24/ic_rectangle_mini_orange.xml" value="0.1" />
+        <entry key="presentation/src/main/res/drawable-v24/ic_sd.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable-v24/outline_card_giftcard_24.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable-v24/outline_computer_24.xml" value="0.1" />
+        <entry key="presentation/src/main/res/drawable-v24/outline_fitness_center_24.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable-v24/outline_phone_iphone_24.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/arrow_header.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/circle.xml" value="0.1" />
@@ -49,6 +51,7 @@
         <entry key="presentation/src/main/res/drawable/color_tab_text.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/filter_image.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/geo_marker_image.xml" value="0.1" />
+        <entry key="presentation/src/main/res/drawable/ic_person.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/ic_search.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/main_cart.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/not_like.xml" value="0.1" />
@@ -63,6 +66,7 @@
         <entry key="presentation/src/main/res/layout/phone_fragment.xml" value="0.20050265547158058" />
         <entry key="presentation/src/main/res/layout/phone_view.xml" value="0.19610507246376813" />
         <entry key="presentation/src/main/res/layout/recyclerview_cart.xml" value="0.19610507246376813" />
+        <entry key="presentation/src/main/res/layout/recyclerview_phone_homestore.xml" value="0.19610507246376813" />
         <entry key="presentation/src/main/res/layout/recyclerview_phone_image.xml" value="0.19610507246376813" />
       </map>
     </option>
