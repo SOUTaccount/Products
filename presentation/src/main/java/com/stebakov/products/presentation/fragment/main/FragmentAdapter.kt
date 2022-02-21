@@ -2,7 +2,6 @@ package com.stebakov.products.presentation.fragment.main
 
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.stebakov.domain.entity.*
 import com.stebakov.products.presentation.fragment.phone.PhoneFragment
 
 class FragmentAdapter(

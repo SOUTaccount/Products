@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardBackgroundColor="@color/dark_blue"
+    app:cardCornerRadius="@dimen/max_radius">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_my_cart"
+            style="@style/CartRecyclerViewStyle"
+            tools:listitem="@layout/recyclerview_cart"
+            tools:itemCount="2"
+            app:layout_constraintBottom_toTopOf="@id/line2_my_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_checkout_my_cart"
+            style="@style/ButtonCheckoutMyCartViewStyle"
+            android:text="@string/checkout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_delivery_my_cart"
+            style="@style/OutcomeTextViewStyle"
+            android:layout_marginBottom="@dimen/margin_bottom_tv_delivery_my_cart"
+            android:text="@string/delivery"
+            app:layout_constraintBottom_toTopOf="@id/line1_my_cart"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_delivery_value_my_cart"
+            style="@style/OutcomeValueTextViewStyle"
+            app:layout_constraintBottom_toTopOf="@id/barrier_tv_delivery"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_total_my_cart"
+            style="@style/OutcomeTextViewStyle"
+            android:layout_marginBottom="@dimen/margin_bottom_tv_total_my_cart"
+            android:text="@string/total"
+            app:layout_constraintBottom_toTopOf="@id/tv_delivery_my_cart"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_total_value_my_cart"
+            style="@style/OutcomeValueTextViewStyle"
+            app:layout_constraintBottom_toTopOf="@id/barrier_tv_total"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_tv_delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tv_delivery_my_cart" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tv_total_my_cart" />
+
+        <View
+            android:id="@+id/line1_my_cart"
+            style="@style/LineOneMyCartStyle"
+            app:layout_constraintBottom_toTopOf="@id/button_checkout_my_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/line2_my_cart"
+            style="@style/LineTwoMyCartStyle"
+            app:layout_constraintBottom_toTopOf="@id/tv_total_my_cart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

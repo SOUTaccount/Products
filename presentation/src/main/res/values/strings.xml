@@ -13,4 +13,20 @@
     <string name="product_detail_title">Product detail</string>
     <string name="select_color_text">Select color and capacity</string>
     <string name="add_to_cart_text">Add to Cart $</string>
+    <string name="tv_geo_text">Zihuatanejo, Gro</string>
+    <string name="search">Search</string>
+    <string name="explorer">Explorer</string>
+    <string name="hot_sales">Hot sales</string>
+    <string name="count_basket">2</string>
+    <string name="checkout">Checkout</string>
+    <string name="delivery">Delivery</string>
+    <string name="total">Total</string>
+    <string name="my_cart">My Cart</string>
+    <string name="add_address">Add address</string>
+    <string name="shop">Shop</string>
+    <string name="details">Details</string>
+    <string name="features">Features</string>
+    <string name="select_color_and_capacity">Select color and capacity</string>
+    <string name="add_to_my_cart">Add to cart</string>
+    <string name="product_details">Product Detail</string>
 </resources>

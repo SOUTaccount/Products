@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.stebakov.domain.entity.PhoneDetailServerModel
+import com.stebakov.domain.entity.network.PhoneDetailServerModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -17,14 +17,14 @@ class DetailViewModel(private val detailModel: DetailModel) : ViewModel() {
         get() = _phoneDetail
 
     fun getDetail() {
-        if (detailModel.getDetailPhoneUseCase.data == null) {
+        if (detailModel.checkLocalData()) {
             currentJob?.cancel()
             viewModelScope.launch(Dispatchers.IO) {
                 _phoneDetail.postValue(detailModel.getDetail())
             }
                 .also { currentJob = it }
         } else {
-            _phoneDetail.postValue(detailModel.getDetailPhoneUseCase.data)
+            _phoneDetail.postValue(detailModel.getLocalDataDetailPhone())
         }
     }
 

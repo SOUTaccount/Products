@@ -3,7 +3,7 @@ package com.stebakov.products.presentation.fragment.phonedetail.characteristics
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class FragmentCharacteristicsAdapter (
+class FragmentCharacteristicsAdapter(
     fragment: FragmentActivity,
     private val characteristics: List<Characteristics>
 ) : FragmentStateAdapter(fragment) {

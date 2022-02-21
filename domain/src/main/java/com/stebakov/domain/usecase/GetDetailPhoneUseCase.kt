@@ -1,13 +1,14 @@
 package com.stebakov.domain.usecase
 
-import com.stebakov.domain.entity.PhoneDetailServerModel
-import com.stebakov.domain.repository.PhoneCloudDataSource
+import com.stebakov.domain.entity.network.PhoneDetailServerModel
+import com.stebakov.domain.repository.PhoneRepository
 
 class GetDetailPhoneUseCase {
     var data: PhoneDetailServerModel? = null
+        private set
 
-    suspend fun execute(cloudDataSource: PhoneCloudDataSource): PhoneDetailServerModel {
-        data = cloudDataSource.getDetail()[0]
+    suspend fun execute(repository: PhoneRepository): PhoneDetailServerModel {
+        data = repository.getDetail()[0]
         return data!!
     }
 }
