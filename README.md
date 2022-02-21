@@ -1,12 +1,12 @@
 # Product
 
 
-##Экран «Main»
+## Экран «Main»
 **API:**<br/>
 **GET** - https://shopapi-0575.restdb.io/rest/home<br/>
 **Header** - x-apikey: 61ddae2e95cb716ea5ee48e4
 
-###Общие требования:
+### Общие требования:
 
 **Select Category** - При нажатию на иконку она меняет цвет (как по дизайну)<br/>
 Выбрана и выделенная иконка может быть только одна.
@@ -32,7 +32,7 @@
 ● Size
 
 
-##Экран  «Product Details»
+## Экран  «Product Details»
 **API:** ( пример только по одной модели телефона)<br/>
 **GET** - https://shopapi-0575.restdb.io/rest/detail<br/>
 **Header** - x-apikey: 61ddae2e95cb716ea5ee48e4
@@ -49,7 +49,7 @@
 ● Добавить в корзину;
 
 
-##Экран «My Cart»
+## Экран «My Cart»
 **API:**<br/>
 **GET** - https://shopapi-0575.restdb.io/rest/cart<br/>
 **Header** - x-apikey: 61ddae2e95cb716ea5ee48e4
