@@ -2,6 +2,7 @@
 
 
 ## Экран «Main»
+![main_screen](https://github.com/SOUTaccount/Products/blob/master/main_screen.jpg)
 **API:**<br/>
 **GET** - https://shopapi-0575.restdb.io/rest/home<br/>
 **Header** - x-apikey: 61ddae2e95cb716ea5ee48e4
