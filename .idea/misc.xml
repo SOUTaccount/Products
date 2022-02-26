@@ -51,6 +51,7 @@
         <entry key="presentation/src/main/res/drawable/arrow_header.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/circle.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/circle_imagebutton.xml" value="0.1" />
+        <entry key="presentation/src/main/res/drawable/circle_orange.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/color_tab_text.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/filter_image.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/geo_marker_image.xml" value="0.1" />
@@ -58,6 +59,7 @@
         <entry key="presentation/src/main/res/drawable/ic_search.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/main_cart.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable/not_like.xml" value="0.1" />
+        <entry key="presentation/src/main/res/drawable/splash_drawable.xml" value="0.1" />
         <entry key="presentation/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
         <entry key="presentation/src/main/res/layout/bottom_sheet_cart.xml" value="0.19610507246376813" />
         <entry key="presentation/src/main/res/layout/bottom_sheet_main.xml" value="0.19610507246376813" />
