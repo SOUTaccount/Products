@@ -29,4 +29,26 @@
     <string name="select_color_and_capacity">Select color and capacity</string>
     <string name="add_to_my_cart">Add to cart</string>
     <string name="product_details">Product Detail</string>
+    <string name="done">Done</string>
+    <string name="filter_options">Filter options</string>
+    <string name="brand">Brand</string>
+    <string name="price">Price</string>
+    <string name="size">Size</string>
+    <string-array name="brand_phone_array">
+        <item>Samsung</item>
+        <item>IPhone</item>
+        <item>Xiaomi</item>
+    </string-array>
+
+    <string-array name="price_phone_array">
+        <item>$0 - $10000</item>
+        <item>$0 - $5000</item>
+        <item>$5000 - $10000</item>
+    </string-array>
+
+    <string-array name="size_phone_array">
+        <item>4.5 to 5.5 inches</item>
+        <item>5.5 to 6.8 inches</item>
+        <item>0.0 to 6.8 inches</item>
+    </string-array>
 </resources>

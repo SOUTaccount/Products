@@ -5,10 +5,15 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.TextView
+import androidx.annotation.ArrayRes
+import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayoutMediator
 import com.stebakov.products.R
 import com.stebakov.products.databinding.FragmentMainBinding
@@ -22,6 +27,21 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewBinding = FragmentMainBinding.bind(view)
+        val bottomSheetDialogFragment =
+            BottomSheetBehavior.from(viewBinding!!.bottomSheet.bottomSheetMainScreen)
+        with(viewBinding!!) {
+            bottomSheet.ivCloseContainer.setOnClickListener {
+                bottomSheetDialogFragment.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+            ivFilter.setOnClickListener {
+                if (bottomSheetDialogFragment.state != BottomSheetBehavior.STATE_EXPANDED)
+                    bottomSheetDialogFragment.state = BottomSheetBehavior.STATE_EXPANDED
+                else bottomSheetDialogFragment.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+        }
+        initSpinner(viewBinding!!.bottomSheet.spinnerBrand, R.array.brand_phone_array)
+        initSpinner(viewBinding!!.bottomSheet.spinnerPrice, R.array.price_phone_array)
+        initSpinner(viewBinding!!.bottomSheet.spinnerSize, R.array.size_phone_array)
         with(viewBinding!!) {
             ivShopNavigationView.setOnClickListener {
                 Navigation.findNavController(view)
@@ -58,6 +78,17 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         drawable.setImageResource(typeOfProducts[position].drawable)
         title.text = typeOfProducts[position].name
         return view
+    }
+
+    private fun initSpinner(spinner: Spinner, @ArrayRes textArrayResId: Int) {
+        ArrayAdapter.createFromResource(
+            this.requireContext(),
+            textArrayResId,
+            R.layout.spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
     }
 
     override fun onDestroyView() {
