@@ -27,6 +27,9 @@ class PhoneDetailFragment : Fragment(R.layout.phone_detail_fragment) {
         super.onViewCreated(view, savedInstanceState)
         viewBinding = PhoneDetailFragmentBinding.bind(view)
         val adapter = FragmentCharacteristicsAdapter(requireActivity(), characteristics)
+        viewBinding!!.rvImagePhoneProductDetails.visibility = View.INVISIBLE
+        viewBinding!!.loadingIndicator.visibility = View.VISIBLE
+        viewBinding!!.viewpagerDetail.visibility = View.INVISIBLE
         with(viewBinding!!) {
             viewpagerDetail.adapter = adapter
             TabLayoutMediator(tabDetail, viewpagerDetail) { tab, position ->
@@ -49,6 +52,11 @@ class PhoneDetailFragment : Fragment(R.layout.phone_detail_fragment) {
                     )
                     it.adapter = ImageDetailAdapter(phoneDetail, requireContext())
                     tvPhoneNameDetail.text = phoneDetail.title
+                }
+                if (phoneDetail != null){
+                    viewBinding!!.rvImagePhoneProductDetails.visibility = View.VISIBLE
+                    viewBinding!!.loadingIndicator.visibility = View.INVISIBLE
+                    viewBinding!!.viewpagerDetail.visibility = View.VISIBLE
                 }
             }
         }
