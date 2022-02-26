@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../.gradle/caches/transforms-3/7c35e9ced6058ee9ee419dce8130dd8e/transformed/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.19610507246376813" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_card_giftcard_24.xml" value="0.17962962962962964" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_computer_24.xml" value="0.17962962962962964" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/app/src/main/res/drawable-v24/outline_favorite_24.xml" value="0.21944444444444444" />
@@ -35,7 +36,9 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/presentation/src/main/res/layout/phone_view.xml" value="0.15942028985507245" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Products/presentation/src/main/res/layout/recyclerview_phone_homestore.xml" value="0.15942028985507245" />
         <entry key="presentation/src/main/res/drawable-v24/ic_arrow_left.xml" value="0.1" />
+        <entry key="presentation/src/main/res/drawable-v24/ic_background_spinner.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable-v24/ic_basket.xml" value="0.1" />
+        <entry key="presentation/src/main/res/drawable-v24/ic_close.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable-v24/ic_cpu.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable-v24/ic_line.xml" value="0.1" />
         <entry key="presentation/src/main/res/drawable-v24/ic_rectangle.xml" value="0.1" />
@@ -57,6 +60,7 @@
         <entry key="presentation/src/main/res/drawable/not_like.xml" value="0.1" />
         <entry key="presentation/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
         <entry key="presentation/src/main/res/layout/bottom_sheet_cart.xml" value="0.19610507246376813" />
+        <entry key="presentation/src/main/res/layout/bottom_sheet_main.xml" value="0.19610507246376813" />
         <entry key="presentation/src/main/res/layout/bottom_sheet_phone_detail.xml" value="0.19610507246376813" />
         <entry key="presentation/src/main/res/layout/card_favorite_phone.xml" value="0.3774296354881722" />
         <entry key="presentation/src/main/res/layout/fragment_cart.xml" value="0.19610507246376813" />
@@ -70,6 +74,8 @@
         <entry key="presentation/src/main/res/layout/recyclerview_phone_bestseller.xml" value="0.19610507246376813" />
         <entry key="presentation/src/main/res/layout/recyclerview_phone_homestore.xml" value="0.19610507246376813" />
         <entry key="presentation/src/main/res/layout/recyclerview_phone_image.xml" value="0.19610507246376813" />
+        <entry key="presentation/src/main/res/layout/spinner_dropdown.xml" value="0.19610507246376813" />
+        <entry key="presentation/src/main/res/layout/spinner_item.xml" value="0.19610507246376813" />
       </map>
     </option>
   </component>
