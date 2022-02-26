@@ -23,6 +23,8 @@ class PhoneFragment : Fragment(R.layout.phone_fragment) {
         navigationView = view
         phoneViewModel.getPhone()
         phoneViewModel.addFavoritePhones()
+        viewBinding!!.llPhonesMain.visibility = View.GONE
+        viewBinding!!.loadingIndicator.visibility = View.VISIBLE
         phoneViewModel.phones.observe(viewLifecycleOwner) { phones ->
             viewBinding!!.recyclerviewPhoneHomeStore.also {
                 it.setHasFixedSize(true)
@@ -43,6 +45,12 @@ class PhoneFragment : Fragment(R.layout.phone_fragment) {
                     GridLayoutManager(requireContext(), 2)
                 it.adapter =
                     PhoneBestSellerAdapter(phonesBestSeller, requireContext(), navigationView)
+            }
+            if (!phonesBestSeller.isNullOrEmpty()){
+                with(viewBinding!!){
+                    llPhonesMain.visibility = View.VISIBLE
+                    loadingIndicator.visibility = View.INVISIBLE
+                }
             }
         }
     }

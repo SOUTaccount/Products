@@ -7,7 +7,16 @@
     android:background="@color/light_grey"
     tools:context=".presentation.fragment.phone.PhoneFragment">
 
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/loading_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:indicatorColor="@color/orange"
+        android:layout_gravity="center" />
+
     <LinearLayout
+        android:id="@+id/ll_phones_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
