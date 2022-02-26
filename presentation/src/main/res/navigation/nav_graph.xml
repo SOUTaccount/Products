@@ -20,6 +20,9 @@
             app:exitAnim="@animator/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@animator/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_favoritePhonesFragment"
+            app:destination="@id/favoritePhonesFragment" />
     </fragment>
     <fragment
         android:id="@+id/phoneDetailFragment"
@@ -35,4 +38,9 @@
         android:name="com.stebakov.products.presentation.fragment.cart.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/favoritePhonesFragment"
+        android:name="com.stebakov.products.presentation.fragment.favorite.FavoritePhonesFragment"
+        android:label="fragment_favorite_phones"
+        tools:layout="@layout/fragment_favorite_phones" />
 </navigation>

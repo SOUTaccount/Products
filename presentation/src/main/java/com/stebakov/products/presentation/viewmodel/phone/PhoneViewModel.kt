@@ -24,6 +24,10 @@ class PhoneViewModel(private val phoneModel: PhoneModel) : ViewModel() {
     val phonesBestSeller: LiveData<List<PhoneBestSellerServerModel>>
         get() = _phonesBestSeller
 
+    private val _favoritePhones = MutableLiveData<List<FavoritePhone>>()
+    val favoritePhones: LiveData<List<FavoritePhone>>
+        get() = _favoritePhones
+
     fun getPhone() {
         if (phoneModel.checkLocalData()) {
             currentJob?.cancel()
@@ -44,12 +48,10 @@ class PhoneViewModel(private val phoneModel: PhoneModel) : ViewModel() {
         }
     }
 
-    fun getAllFavoritePhones(cache: Cache): List<FavoritePhone>? {
-        var favoritePhonesCache: List<FavoritePhone>? = null
+    fun getAllFavoritePhones() {
         viewModelScope.launch(Dispatchers.IO) {
-            favoritePhonesCache = cache.getFavoritePhones()
+            _favoritePhones.postValue(phoneModel.getAllFavoritePhones())
         }
-        return favoritePhonesCache
     }
 
     override fun onCleared() {

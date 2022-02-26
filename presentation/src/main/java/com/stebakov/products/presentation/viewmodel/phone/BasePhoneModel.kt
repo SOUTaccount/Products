@@ -1,5 +1,6 @@
 package com.stebakov.products.presentation.viewmodel.phone
 
+import com.stebakov.data.cache.Cache
 import com.stebakov.domain.entity.network.PhoneBestSellerServerModel
 import com.stebakov.domain.repository.PhoneRepository
 import com.stebakov.domain.usecase.AddFavoritePhonesUseCase
@@ -12,7 +13,8 @@ class BasePhoneModel(
     private val getPhonesHomeStoreUseCase: GetPhonesUseCase,
     private val getPhonesBestSellerUseCase: GetPhoneBestSellerUseCase,
     private val getDetailPhoneUseCase: GetDetailPhoneUseCase,
-    private val addFavoritePhonesUseCase: AddFavoritePhonesUseCase
+    private val addFavoritePhonesUseCase: AddFavoritePhonesUseCase,
+    private val cache: Cache
 ) : PhoneModel {
 
     override suspend fun getPhones() = getPhonesHomeStoreUseCase.execute(repository)
@@ -25,5 +27,5 @@ class BasePhoneModel(
         (getPhonesBestSellerUseCase.data == null && getPhonesBestSellerUseCase.data == null)
     override fun getLocalDataHomeStore() = getPhonesHomeStoreUseCase.data
     override fun getLocalDataBestSeller() = getPhonesBestSellerUseCase.data
-
+    override suspend fun getAllFavoritePhones() = cache.getFavoritePhones()
 }

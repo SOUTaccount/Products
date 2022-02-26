@@ -1,5 +1,6 @@
 package com.stebakov.products.presentation.viewmodel.phone.test
 
+import com.stebakov.domain.entity.database.FavoritePhone
 import com.stebakov.domain.entity.network.PhoneBestSellerServerModel
 import com.stebakov.domain.entity.network.PhoneDetailServerModel
 import com.stebakov.domain.entity.network.PhoneHomeStoreServerModel
@@ -47,4 +48,6 @@ class PhoneTestPhoneModel : PhoneModel {
     override fun checkLocalData() = false
     override fun getLocalDataHomeStore() = listHomeStore
     override fun getLocalDataBestSeller() = listBestSeller
+    override suspend fun getAllFavoritePhones() =
+        listOf<FavoritePhone>(FavoritePhone(0, "asg", 12521, "empty", true))
 }

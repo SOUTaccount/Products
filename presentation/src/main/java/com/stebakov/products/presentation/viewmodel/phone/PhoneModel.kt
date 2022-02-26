@@ -1,5 +1,6 @@
 package com.stebakov.products.presentation.viewmodel.phone
 
+import com.stebakov.domain.entity.database.FavoritePhone
 import com.stebakov.domain.entity.network.PhoneDetailServerModel
 import com.stebakov.domain.entity.network.PhoneBestSellerServerModel
 import com.stebakov.domain.entity.network.PhoneHomeStoreServerModel
@@ -16,4 +17,5 @@ interface PhoneModel {
     fun checkLocalData() : Boolean
     fun getLocalDataHomeStore() : List<PhoneHomeStoreServerModel>?
     fun getLocalDataBestSeller() : List<PhoneBestSellerServerModel>?
+    suspend fun getAllFavoritePhones() : List<FavoritePhone>
 }

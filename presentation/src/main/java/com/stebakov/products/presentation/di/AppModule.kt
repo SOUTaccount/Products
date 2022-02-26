@@ -22,7 +22,8 @@ val appModule = module {
             getDetailPhoneUseCase = get(),
             getPhonesBestSellerUseCase = get(),
             getPhonesHomeStoreUseCase = get(),
-            addFavoritePhonesUseCase = get()
+            addFavoritePhonesUseCase = get(),
+            cache = get()
         )
     }
 

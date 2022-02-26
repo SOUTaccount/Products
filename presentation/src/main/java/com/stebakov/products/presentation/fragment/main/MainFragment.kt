@@ -27,6 +27,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 Navigation.findNavController(view)
                     .navigate(R.id.action_mainFragment_to_cartFragment)
             }
+            ivFavoritesNavigationView.setOnClickListener {
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_mainFragment_to_favoritePhonesFragment)
+            }
             val adapter = FragmentAdapter(requireActivity(), typeOfProducts)
             viewpagerMain.adapter = adapter
             stopScroll(viewpagerMain)
